@@ -383,6 +383,31 @@ body {
   transform: scale(1.2);
 }
 
+
+.favoritar-btn {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.favoritar-btn:hover {
+  background-color: #aa4d00;
+  transform: scale(1.03);
+}
+
+.favoritar-btn:active {
+  transform: scale(0.96);
+}
+
+
+
 /* =============== FOOTER =============== */
 footer {
   background: #050505;

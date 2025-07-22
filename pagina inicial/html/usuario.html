@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Perfil do Usuário - EKLIPSE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+  <style>
+    /* Banner atrás do perfil */
+    .perfil-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      color: #f5f5f5;
+      position: relative; /* necessário pra colocar banner atrás */
+      overflow: hidden;
+    }
+
+    /* Banner imagem de fundo */
+    .perfil-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 25%; /* altura do banner atrás */
+      background-image: url('https://xboxwire.thesourcemediaassets.com/sites/2/2022/04/mainHeader.jpg'); /* coloque aqui o caminho do seu banner */
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.5);
+      border-radius: 20px 20px 0 0;
+      z-index: 0;
+    }
+
+    /* O conteúdo do perfil fica na frente */
+    .perfil-header, .info-group, button, .secao-items {
+      position: relative;
+      z-index: 1;
+    }
+
+    .perfil-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .perfil-header img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 70%;
+      border: 3px solid #ff4e00;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .perfil-header img:hover {
+      transform: scale(1.05);
+    }
+
+    .trocar-foto {
+      display: inline-block;
+      margin-top: 8px;
+      color: #ff6600;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+
+    .info-group label {
+      color: #ccc;
+      margin-bottom: 5px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .info-group input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #222;
+      color: #f5f5f5;
+      margin-bottom: 20px;
+    }
+
+    .btn-sair {
+      background: #ff6600;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-sair:hover {
+      background: #e54300;
+      transform: translateY(-2px);
+    }
+
+    .secao-items h3 {
+      color: #ff6600;
+      margin: 30px 0 15px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card-item {
+      background: #111;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain; /* agora mostra a imagem por completo */
+      background-color: #000; /* fundo pra preencher o espaço vazio */
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .card-item a {
+      display: inline-block;
+      margin-top: 90px;
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .card-item a:hover {
+      color: #fff;
+    }
+
+    #input-foto {
+      display: none;
+    }
+
+    h2, p {
+      color: #f5f5f5;
+      margin: 0;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER do site -->
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="/pagina inicial/html/index.html">
+        <img src="/pagina inicial/image/logo-do-site.png" alt="EKLIPSE Logo" class="logo-img" />
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO DO PERFIL -->
+  <main class="perfil-container">
+    
+    <h1>Meu Perfil</h1>
+    <p>Gerencie suas informações e veja suas compras e vendas.</p>
+    <div class="perfil-header">
+      <label for="input-foto">
+        <img src="/pagina inicial/image/dfkvm5x-516444be-d2e8-40ca-bccf-1dcf91eae48b.png" alt="Avatar" id="avatar">
+      </label>
+      <input type="file" accept="image/*" id="input-foto">
+      <div>
+        <h2 id="user-nome">Fulano da Silva</h2>
+        <span class="trocar-foto">Trocar foto</span>
+            <button class="btn-sair" onclick="logout()">Sair da Conta</button>
+      </div>
+    </div>
+
+    <div class="info-group">
+      <p>Sou apaixonado por tecnologia e encontrei na EKLIPSE o lugar perfeito pra comprar e vender minhas peças de computador. Já montei meu setup inteiro por aqui e também vendi placas de vídeo, memórias RAM e periféricos com facilidade. A plataforma é segura, rápida e cheia de compradores interessados. Recomendo demais pra quem vive no mundo gamer e tech como eu!</p>
+    </div>
+
+    <section class="secao-items">
+      <h3>🛒 Compras Realizadas</h3>
+      <div class="cards-container" id="compras"></div>
+    </section>
+
+    <section class="secao-items">
+      <h3>💸 Vendas Efetuadas</h3>
+      <div class="cards-container" id="vendas"></div>
+    </section>
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+    // Trocar foto do perfil
+    const inputFoto = document.getElementById('input-foto');
+    const avatar = document.getElementById('avatar');
+    document.querySelector('.trocar-foto').addEventListener('click', () => inputFoto.click());
+    inputFoto.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => {
+        avatar.src = ev.target.result;
+        localStorage.setItem('perfilAvatar', ev.target.result);
+      };
+      reader.readAsDataURL(file);
+    });
+    const savedAvatar = localStorage.getItem('perfilAvatar');
+    if (savedAvatar) avatar.src = savedAvatar;
+
+    // Dados simulados
+    const minhasCompras = [
+      {
+        nome: "Mouse Gamer Razer Viper V3",
+        preco: 299.99,
+        imagem: "https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg",
+        link: "/paginas-dos-produtos/páginas/mouse.html"
+      },
+      {
+        nome: "RTX 5070",
+        preco: 2499.99,
+        imagem: "https://images4.kabum.com.br/produtos/fotos/714574/placa-de-video-rtx-5070-windforce-oc-sff-12g-gigabyte-nvidia-geforce-12gb-gddr7-192bits-dlss-ray-tracing-9vn5070wo-00-g10_1740569969_g.jpg",
+        link: "/paginas-dos-produtos/páginas/Rtx5070.html"
+      },
+      {
+        nome: "Monitor Gamer 24''",
+        preco: 539.99,
+        imagem: "https://http2.mlstatic.com/D_NQ_NP_955530-MLA84534338900_052025-O.webp",
+        link: "/paginas-dos-produtos/páginas/monitor24.html"
+      }
+    ];
+
+    const minhasVendas = [
+      {
+        nome: "Memória RAM 32GB DDR4",
+        preco: 699.99,
+        imagem: "https://images8.kabum.com.br/produtos/fotos/110828/memoria-corsair-vengeance-lpx-32gb-2x16gb-3200mhz-ddr4-c16-black-cmk32gx4m2e3200c16_1590064067_g.jpg",
+        link: "/paginas-dos-produtos/páginas/memoriaram.html"
+      },
+      {
+        nome: "Kit Gamer",
+        preco: 699.99,
+        imagem: "/pagina inicial/image/kit-gaymer.jpg",
+        link: "/pages.html"
+      }
+    ];
+
+    function renderItems(lista, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      lista.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card-item';
+        card.innerHTML = `
+          <img src="${item.imagem}" alt="${item.nome}">
+          <p><strong>${item.nome}</strong></p>
+          <p>Preço: R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
+          <a href="${item.link}">Ver Produto</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    renderItems(minhasCompras, 'compras');
+    renderItems(minhasVendas, 'vendas');
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "/pagina inicial/html/index.html";
+    }
+
+// PEGAR USUÁRIO LOGADO
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+const nomeElemento = document.getElementById('user-nome');
+
+  </script>
+
+</body>
+</html>

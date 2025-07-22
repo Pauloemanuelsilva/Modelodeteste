@@ -63,6 +63,16 @@
           link: '/paginas-dos-produtos/p%C3%A1ginas/Computador.html'
 })">Adicionar ao Carrinho</button>
 
+
+<button class="favoritar-btn" onclick="favoritarProduto({
+  nome: 'PC Gamer Neologic Ryzen 5 5600GT, 16GB RAM, Radeon Vega 7 Integrado, SSD 480GB M.2, 500W, 3 Fans RGB',
+  preco: 2399.99,
+  imagem: 'https://images9.kabum.com.br/produtos/fotos/sync_mirakl/691709/large/PC-Gamer-Neologic-Ryzen-5-5600GT-16GB-RAM-Radeon-Vega-7-Integrado-SSD-480GB-M-2-500W-3-Fans-RGB-Nli89039_1749842388.jpg',
+  link: '/paginas-dos-produtos/p%C3%A1ginas/Computador.html'
+})"> Favoritar</button>
+
+
+
   <div class="frete">Frete Grátis*</div>
 </div>
     </div>
@@ -291,6 +301,53 @@
     const totalItens = localStorage.getItem('cartCount') || 0;
     if (contador) contador.textContent = totalItens;
   });
+
+  // Função para verificar se o usuário está logado
+document.getElementById('comprarBtn').addEventListener('click', () => {
+  if (verificarLogin()) {
+    const produto = {
+      nome: 'PC Gamer Neologic Ryzen 5 5600GT, 16GB RAM, Radeon Vega 7 Integrado, SSD 480GB M.2, 500W, 3 Fans RGB',
+      preco: 2399.99,
+      imagem: 'https://images9.kabum.com.br/produtos/fotos/sync_mirakl/691709/large/PC-Gamer-Neologic-Ryzen-5-5600GT-16GB-RAM-Radeon-Vega-7-Integrado-SSD-480GB-M-2-500W-3-Fans-RGB-Nli89039_1749842388.jpg',
+      link: '/paginas-dos-produtos/páginas/Computador.html'
+    };
+
+    addToCart(produto); // Já redireciona pro carrinho
+  } else {
+    alert('Você precisa estar logado para comprar!');
+    window.location.href = '/pagina inicial/html/login.html';
+  }
+});
+
+
+function favoritarProduto(produto) {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (!currentUser) {
+    alert('Você precisa estar logado para favoritar produtos!');
+    window.location.href = '/pagina inicial/html/login.html';
+    return;
+  }
+
+  const userEmail = currentUser.email;
+  const key = `favoritos_${userEmail}`; // favoritos exclusivos por usuário
+  let favoritos = JSON.parse(localStorage.getItem(key)) || [];
+
+  const jaExiste = favoritos.some(fav => fav.nome === produto.nome);
+  if (jaExiste) {
+    alert('Esse produto já está nos seus favoritos!');
+    return;
+  }
+
+  favoritos.push(produto);
+  localStorage.setItem(key, JSON.stringify(favoritos));
+  alert('Adicionado aos seus favoritos com sucesso!');
+}
+
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+if (currentUser) {
+  document.getElementById('user-area').innerHTML = `Olá, ${currentUser.nome}`;
+}
+
 
   </script>
 

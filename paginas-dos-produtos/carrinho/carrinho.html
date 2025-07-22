@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-   <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
   <title>Seu Carrinho - EKLIPSE</title>
   <style>
     body {
@@ -78,9 +78,41 @@
       color: #ff4e00;
       text-decoration: none;
     }
+
+    /* Estilo do ícone do carrinho e contador */
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      color: #ff4e00;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: red;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+      pointer-events: none;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Ícone do carrinho fixo no canto -->
+  <div class="cart-icon" onclick="window.location.href='/pagina inicial/html/carrinho.html'">
+    🛒
+    <span class="cart-count" id="cart-count">0</span>
+  </div>
+
   <h1>🛒 Seu Carrinho</h1>
   <div class="carrinho-container" id="carrinho"></div>
   <div class="total" id="total"></div>
@@ -97,6 +129,7 @@
       if (carrinho.length === 0) {
         container.innerHTML = '<p>Seu carrinho está vazio.</p>';
         totalElement.innerHTML = '';
+        atualizarContadorCarrinho();
         return;
       }
 
@@ -119,6 +152,7 @@
       });
 
       totalElement.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2)}`;
+      atualizarContadorCarrinho();
     }
 
     function removerItem(index) {
@@ -126,50 +160,32 @@
       carrinho.splice(index, 1);
       localStorage.setItem('carrinho', JSON.stringify(carrinho));
       carregarCarrinho();
-
-      const contador = document.getElementById('cart-count');
-      if (contador) contador.textContent = carrinho.length;
     }
 
-    window.addEventListener('DOMContentLoaded', carregarCarrinho);
+    function atualizarContadorCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const contador = document.getElementById('cart-count');
+      if (contador) {
+        contador.textContent = carrinho.length;
+        // Esconde o contador se estiver vazio
+        contador.style.display = carrinho.length > 0 ? 'inline-block' : 'none';
+      }
+    }
+
+    // Função para adicionar produtos ao carrinho (você chama isso na sua página de produtos)
+    function addToCart(produto) {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.push(produto);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      atualizarContadorCarrinho();
+    }
+
+    // Atualiza o contador e carrega o carrinho quando a página carregar
+    window.addEventListener('DOMContentLoaded', () => {
+      carregarCarrinho();
+      atualizarContadorCarrinho();
+    });
   </script>
-
-  <script>
-  function atualizarContadorCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const contador = document.getElementById('cart-count');
-    if (contador) contador.textContent = carrinho.length;
-  }
-
-  // Atualiza o contador assim que a página carregar
-  window.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
-</script>
-
-<script>
-  function addToCart(produto) {
-    // Adiciona ao carrinho principal
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinho.push(produto);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-    // Atualiza contador no ícone do carrinho
-    const contador = document.getElementById('cart-count');
-    if (contador) contador.textContent = carrinho.length;
-
-    // Redireciona (se quiser)
-    // window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
-  }
-
-  // Atualiza contador ao carregar a página
-  function atualizarContadorCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const contador = document.getElementById('cart-count');
-    if (contador) contador.textContent = carrinho.length;
-  }
-
-  window.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
-</script>
-
 
 </body>
 </html>

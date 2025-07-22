@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central de Suporte - EKLIPSE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+  <style>
+    .suporte-container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: #2a2a2a;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      color: white;
+    }
+
+    .suporte-container h2 {
+      text-align: center;
+      font-family: 'Bangers', cursive;
+      font-size: 36px;
+      color: #ff4e00;
+      margin-bottom: 30px;
+    }
+
+    .faq {
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      background-color: #111;
+      border: 1px solid #444;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      padding: 15px 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .faq-item:hover {
+      background-color: #1f1f1f;
+    }
+
+    .faq-item h3 {
+      color: #ff6600;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .faq-resposta {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .faq-item.ativo .faq-resposta {
+      display: block;
+    }
+footer {
+  background: #050505;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px 0;
+  margin-top: 32px;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="logo-container">
+      <a href="/pagina inicial/html/index.html">
+        <img src="/pagina inicial/image/logo-do-site.png" alt="Logo EKLIPSE" class="logo-img">
+      </a>
+    </div>
+  </header>
+
+  <div class="suporte-container">
+    <h2>🚪 Central de Suporte EKLIPSE</h2>
+
+    <div class="faq">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>Como acompanho meu pedido?</h3>
+        <div class="faq-resposta">Você pode acompanhar seu pedido acessando o menu "Meus Pedidos" no seu perfil. Lá você verá o status atualizado de entrega.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>Quais formas de pagamento vocês aceitam?</h3>
+        <div class="faq-resposta">Aceitamos PIX, boleto bancário, cartões de crédito e débito, além de parcelamento em até 12x.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>Como posso devolver um produto?</h3>
+        <div class="faq-resposta">Entre em contato conosco pelo e-mail suporte@eklipse.com ou preencha o formulário na página de contato informando o número do pedido.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>Vocês oferecem garantia?</h3>
+        <div class="faq-resposta">Sim! Todos os nossos produtos têm garantia de fábrica, geralmente entre 12 e 36 meses. Veja os detalhes na página do produto.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 EKLIPSE — Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function toggleFaq(el) {
+      el.classList.toggle("ativo");
+    }
+  </script>
+
+</body>
+</html>

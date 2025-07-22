@@ -1,12 +1,10 @@
-<!-- criar-conta.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Criar Conta | EKLIPSE</title>
+  <title>Cadastro | EKLIPSE</title>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,7 +13,7 @@
       margin: 0;
       padding: 40px 20px;
     }
-    .signup-container {
+    .cadastro-container {
       max-width: 400px;
       margin: 0 auto;
       background: #111;
@@ -36,9 +34,7 @@
       font-weight: bold;
       color: #ccc;
     }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
+    input[type="text"], input[type="email"], input[type="password"] {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
@@ -75,6 +71,7 @@
       text-align: center;
       margin-top: 15px;
       font-weight: bold;
+      color: #f00;
     }
     .back-link {
       display: block;
@@ -91,10 +88,10 @@
   </style>
 </head>
 <body>
-  <div class="signup-container">
+  <div class="cadastro-container">
     <h1>📝 Criar Conta EKLIPSE</h1>
-    <form id="signupForm">
-      <label for="nome">Nome completo:</label>
+    <form id="cadastroForm">
+      <label for="nome">Nome Completo:</label>
       <input type="text" id="nome" name="nome" required />
 
       <label for="email">E-mail:</label>
@@ -103,55 +100,46 @@
       <label for="senha">Senha:</label>
       <input type="password" id="senha" name="senha" required />
 
-      <label for="confirmarSenha">Confirmar senha:</label>
-      <input type="password" id="confirmarSenha" name="confirmarSenha" required />
-
       <button type="submit">Cadastrar</button>
-      <div class="message" id="signupMessage"></div>
+      <div class="message" id="cadastroMessage"></div>
     </form>
-    <a href="/pagina inicial/html/login.html" class="back-link">Já tenho conta</a>
+    <a href="/pagina inicial/html/login.html" class="back-link">Já tenho conta - Entrar</a>
   </div>
 
   <script>
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
+    document.getElementById('cadastroForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const nome = document.getElementById('nome').value.trim();
       const email = document.getElementById('email').value.trim();
       const senha = document.getElementById('senha').value;
-      const confirmarSenha = document.getElementById('confirmarSenha').value;
-      const msg = document.getElementById('signupMessage');
 
-      if (!nome || !email || !senha || !confirmarSenha) {
+      const msg = document.getElementById('cadastroMessage');
+
+      if (!nome || !email || !senha) {
         msg.textContent = '⚠️ Preencha todos os campos!';
         msg.style.color = 'orange';
         return;
       }
-      if (senha !== confirmarSenha) {
-        msg.textContent = '❌ As senhas não coincidem.';
-        msg.style.color = 'red';
-        return;
-      }
 
       let users = JSON.parse(localStorage.getItem('users')) || [];
-      if (users.some(u => u.email === email)) {
-        msg.textContent = '❌ E-mail já cadastrado.';
+
+      const jaExiste = users.some(u => u.email.toLowerCase() === email.toLowerCase());
+      if (jaExiste) {
+        msg.textContent = '❌ Este e-mail já está cadastrado!';
         msg.style.color = 'red';
         return;
       }
 
-      const newUser = { nome, email, senha };
-      users.push(newUser);
+      users.push({ nome, email, senha });
       localStorage.setItem('users', JSON.stringify(users));
-      localStorage.setItem('currentUser', JSON.stringify(newUser)); // <-- Define o usuário logado
 
-      msg.textContent = '✅ Conta criada com sucesso!';
+      msg.textContent = '✅ Cadastro realizado com sucesso! Redirecionando...';
       msg.style.color = '#28a745';
 
-      // Redireciona após 1 segundo
       setTimeout(() => {
-        window.location.href = '/pagina inicial/html/index.html';
-      }, 1000);
+        window.location.href = '/pagina inicial/html/login.html';
+      }, 1800);
     });
   </script>
 </body>
