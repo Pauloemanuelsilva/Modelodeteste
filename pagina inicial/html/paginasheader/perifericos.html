@@ -127,6 +127,7 @@
 
     <nav class="nav-links">
       <ul>
+        <li><a href="/pagina inicial/html/index.html">Ínicio</a></li>
         <li><a href="/pagina inicial/html/paginasheader/paginapc.html">PC Gamer</a></li>
         <li><a href="/pagina inicial/html/paginasheader/harware.html">Hardware</a></li>
         <li><a href="/pagina inicial/html/paginasheader/perifericos.html">Periféricos</a></li>
@@ -152,8 +153,6 @@
       </div>
     </div>
   </header>
-</body>
-</html>
   
   <!-- Manual do Usuário (Modal) -->
 <div id="manualModal" class="manual-modal">
@@ -253,20 +252,12 @@
   <section class="slider-container">
     <div class="slider-wrapper" id="promo-slider">
       <div class="slide active">
-        <img src="https://themes.kabum.com.br/conteudo/layout/6549/1749581108.gif" alt="Promoção 1" />
+        <img src="https://cdn2.newtail.com.br/retail_media/ads/2025/06/23/c5bea4bcc870f164b3bd0068f83171a2.raw.png" alt="Promoção 1" />
       </div>
-      <div class="slide">
-        <img src="https://themes.kabum.com.br/conteudo/layout/6642/1751313132.gif" alt="Promoção 2" />
-      </div>
-      <div class="slide">
-        <img src="https://themes.kabum.com.br/conteudo/layout/6552/1749583765.png" alt="Promoção 3" />
-      </div>
-    </div>
     <button class="nav prev" aria-label="Slide anterior" onclick="moveSlide(-1)">❮</button>
     <button class="nav next" aria-label="Próximo slide" onclick="moveSlide(1)">❯</button>
     <div class="slider-dots" id="slider-dots"></div>
   </section>
-
 
   <!-- WRAPPER COM FILTRO E PRODUTOS -->
   <div class="wrapper">
@@ -301,185 +292,160 @@
       </div>
     </aside>
 
-    <!-- PRODUTOS -->
-    <main class="products">
-      <h2 class="titulo-produtos">Confira nossos produtos em destaque</h2>
-      <div id="product-grid" class="product-grid">
+   <!-- PRODUTOS -->
+<main class="products">
+  <h2 class="titulo-produtos">Confira nossos PCs em destaque 🔥</h2>
+  <div id="product-grid" class="product-grid">
 
-        <!-- Exemplo de Cards -->
-        <div class="card com-fio frete-gratis kabum">
-             <div class="info">
-          <a href="/paginas-dos-produtos/páginas/Computador.html" class="card-link"></a>
-          <img src="https://cdn.dooca.store/1841/products/cyberpunk-completo-preto.jpg?v=1734956752" alt="PC Gamer" />
-          <div class="card-body">
-            <h4>PC Gamer</h4>
-            <span class="frete-gratis">Frete grátis</span>
-            <p class="preco-antigo">R$ 2.499,00</p>
-            <p class="preco-destaque">R$ 2.199,00</p>
-            <p class="parcelamento">ou 10x de R$ 219,90</p>
-            <button class="card-button" onclick="addToCart()">COMPRAR</button>
-            
-          </div>
-        </div>
-      </div>
-        
-   <div class="card sem-fio frete-gratis prime-ninja kabum">
-  <a href="/paginas-dos-produtos/páginas/mouse.html" class="card-link"></a>
-  <img src="https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg" alt="Mouse Gamer" />
+
+<!-- 🖱️ TECLADO MECÂNICO -->
+<div class="card kabum">
+  <img src="https://images.tcdn.com.br/img/img_prod/684351/teclado_mecanico_gamer_redragon_kumara_k552_led_vermelho_2509_1_50e3060945c17b0a893633930904edfc.jpg" alt="Teclado Mecânico Redragon K552">
   <div class="card-body">
-    <h4>Mouse Gamer Razer Viper V3</h4>
-    <span class="frete-gratis">Frete grátis</span>
-    <p class="preco-antigo">R$ 329,99</p>
-    <p class="preco-destaque">R$ 299,99</p>
-    <p class="parcelamento">ou 10x de R$ 29,99</p>
-    <button class="card-button" onclick="addToCart({
-      nome: 'Mouse Gamer Razer Viper V3',
-      preco: 299.99,
-      imagem: 'https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg',
-      link: '/paginas/mouse.html'
-    })">COMPRAR</button>
+    <h4>Teclado Mecânico Redragon K552</h4>
+    <p class="preco-antigo">R$ 239,99</p>
+    <p class="preco-destaque">R$ 199,99</p>
+    <p class="parcelamento">ou 10x de R$ 19,99</p>
+    <button class="card-button">COMPRAR</button>
   </div>
 </div>
 
-            <div class="card">
-          <a href="/paginas-dos-produtos/páginas/Rtx5070.html" class="card-link"></a>
-          <img src="https://images4.kabum.com.br/produtos/fotos/714574/placa-de-video-rtx-5070-windforce-oc-sff-12g-gigabyte-nvidia-geforce-12gb-gddr7-192bits-dlss-ray-tracing-9vn5070wo-00-g10_1740569969_g.jpg" alt="RTX 3070 Soyo" />
-          <div class="card-body">
-            <h4> RTX 5070</h4>
-            <p>Categoria: GPU</p>
-           <p class="preco-antigo">R$ 4.600,99</p>
-            <p class="preco-destaque">R$ 2.499,99</p>
-            <p class="parcelamento">ou 10x de R$ 249,99
-            </p>
-            <button class="card-button" onclick="addToCart({})">COMPRAR</button>
+<!-- 🖱️ MOUSE LOGITECH G203 -->
+<div class="card kabum">
+  <img src="https://images8.kabum.com.br/produtos/fotos/112948/mouse-gamer-logitech-g203-rgb-lightsync-6-botoes-8000-dpi-preto-910-005793_1612880277_g.jpg" alt="Mouse Gamer Logitech G203">
+  <div class="card-body">
+    <h4>Mouse Gamer Logitech G203</h4>
+    <p class="preco-antigo">R$ 159,99</p>
+    <p class="preco-destaque">R$ 129,90</p>
+    <p class="parcelamento">ou 10x de R$ 12,99</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-          </div>
-        </div>
+<!-- 🎧 HEADSET HYPERX -->
+<div class="card kabum">
+  <img src="https://row.hyperx.com/cdn/shop/products/hyperx_cloud_stinger_core_wireless_7.1_07_extended.jpg?v=1662421260&width=1946" alt="Headset HyperX Core">
+  <div class="card-body">
+    <h4>Headset HyperX Stinger Core</h4>
+    <p class="preco-antigo">R$ 269,99</p>
+    <p class="preco-destaque">R$ 229,00</p>
+    <p class="parcelamento">ou 10x de R$ 22,90</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card">
-          <a href="/paginas-dos-produtos/páginas/MonitorGamer24'.html" class="card-link"></a>
-          <img src="https://http2.mlstatic.com/D_NQ_NP_955530-MLA84534338900_052025-O.webp" alt="Monitor Gamer 24''" />
-          <div class="card-body">
-            <h4>Monitor Gamer 24'</h4>
-            <p>Categoria: Monitor</p>
-            <p class="preco-antigo">R$ 609,99</p>
-            <p class="preco-destaque">R$ 539,99</p>
-            <p class="parcelamento">ou 10x de R$ 53,99</p>
-            <button>Comprar</button>
-          </div>
-        </div>
+<!-- 📷 WEBCAM LOGITECH -->
+<div class="card kabum">
+  <img src="https://m.media-amazon.com/images/I/519vmGo5jYL.jpg" alt="Webcam Logitech C270">
+  <div class="card-body">
+    <h4>Webcam Logitech C270 HD</h4>
+    <p class="preco-antigo">R$ 209,90</p>
+    <p class="preco-destaque">R$ 179,90</p>
+    <p class="parcelamento">ou 10x de R$ 17,99</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card">
-          <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRbKsgdig-CUNE84qR3nKB7GvQs6R7OpsZZqNWb8JWK5rdj0oU6--uZ3sSOXyzhWecc9-mBcOHfJyRnNsQKfDfwu2kwQ8RJtB2OzVYNxHZPeNfaDEKdyHP1eMmuXCncES4st16rdw&usqp=CAc" alt="Memória 16GB DDR4" />
-          <div class="card-body">
-            <h4>Memória 16GB DDR4</h4>
-            <p>Categoria: Memória</p>
-            <p class="preco-antigo">R$ 499,99</p>
-            <p class="preco-destaque">R$ 399,99</p>
-            <p class="parcelamento">ou 10x de R$ 39,99</p>
-            <button class="card-button" onclick="addToCart({
-  nome: 'NOME DO PRODUTO',
-  preco: VALOR, 
-  imagem: 'URL_DA_IMAGEM',
-  link: '/paginas/detalhe.html'
-})">COMPRAR</button>
+<!-- 🖱️ MOUSEPAD RGB XL -->
+<div class="card kabum">
+  <img src="https://m.media-amazon.com/images/I/7176jjoz+xL.jpg" alt="Mousepad RGB Fortrek">
+  <div class="card-body">
+    <h4>Mousepad RGB XL Fortrek</h4>
+    <p class="preco-antigo">R$ 129,90</p>
+    <p class="preco-destaque">R$ 99,90</p>
+    <p class="parcelamento">ou 10x de R$ 9,99</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-          </div>
-        </div>
+<!-- 🎤 MICROFONE FIFINE -->
+<div class="card kabum">
+  <img src="https://img.terabyteshop.com.br/archive/2746878132/HTML%201.jpg" alt="Microfone Gamer Fifine">
+  <div class="card-body">
+    <h4>Microfone Gamer Fifine K669B</h4>
+    <p class="preco-antigo">R$ 269,00</p>
+    <p class="preco-destaque">R$ 229,90</p>
+    <p class="parcelamento">ou 10x de R$ 22,99</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card">
-          <a href="/paginas-dos-produtos/páginas/Placa Mãe ASUS TUF.html" class="card-link"></a>
-          <img src="https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-b550-matx-ddr4_1638447286_gg.jpg" alt="Placa Mãe" />
-          <div class="card-body">
-            <h4>Placa Mãe ASUS TUF</h4>
-            <p>Categoria: Placa Mãe</p>
-            <p class="preco-antigo">R$ 699,99</p>
-            <p class="preco-destaque">R$ 599,99</p>
-            <p class="parcelamento">ou 10x de R$ 59,99</p>
-            <button>Comprar</button>
-          </div>
-        </div>
+<!-- 🎮 CONTROLE XBOX SERIES -->
+<div class="card kabum">
+  <img src="https://images.kabum.com.br/produtos/fotos/sync_mirakl/158630/xlarge/Controle-Sem-Fio-Xbox-Series-X-e-S-Microsoft-Carbon-Black-Bluetooth-Preto_1751566780.jpg" alt="Controle Xbox Preto">
+  <div class="card-body">
+    <h4>Controle Xbox Series Preto</h4>
+    <p class="preco-antigo">R$ 449,00</p>
+    <p class="preco-destaque">R$ 399,00</p>
+    <p class="parcelamento">ou 10x de R$ 39,90</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-      
+<!-- 💡 SUPORTE RGB HEADSET -->
+<div class="card kabum">
+  <img src="https://images.tcdn.com.br/img/img_prod/374123/suporte_para_headset_rise_gaming_venon_pro_preto_e_branco_rm_vn_02_bw_rise_mode_24668_1_20171002220918.jpg" alt="Suporte Headset RGB">
+  <div class="card-body">
+    <h4>Suporte Headset RGB Rise Mode</h4>
+    <p class="preco-antigo">R$ 99,99</p>
+    <p class="preco-destaque">R$ 79,90</p>
+    <p class="parcelamento">ou 7x de R$ 11,41</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card">
-          <img src="https://images.kabum.com.br/produtos/fotos/402564/placa-de-video-rtx-4070-ti-gigabyte-nvidia-geforce-12-gb-gddr6x-dlss-3-ray-tracing-gv-n407teagle-oc-12gd_1672920613_gg.jpg" alt="Placa de Vídeo" />
-          <a href="/paginas-dos-produtos/páginas/nvidea.html" class="card-link"></a>
-          <div class="card-body">
-            <h4>NVIDIA RTX 4070 Ti</h4>
-            <p>Categoria: GPU</p>
-            <p class="preco-antigo">R$ 5.000,00</p>
-            <p class="preco-destaque">R$ 4.500,00
-            <p class="parcelamento">ou 10x de R$ 450,00</p>
-            <button>Comprar</button>
-          </div>
-        </div>
+<!-- 🔌 HUB USB 3.0 -->
+<div class="card kabum">
+  <img src="https://lojamultilaser.vtexassets.com/arquivos/ids/1456916-800-auto?v=638841789559900000&width=800&height=auto&aspect=true" alt="Hub USB 4 Portas">
+  <div class="card-body">
+    <h4>Hub USB 3.0 4 Portas Multilaser</h4>
+    <p class="preco-antigo">R$ 69,90</p>
+    <p class="preco-destaque">R$ 59,90</p>
+    <p class="parcelamento">ou 5x de R$ 11,98</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card">
-          <img src="https://images.kabum.com.br/produtos/fotos/365024/monitor-gamer-curvo-concordia-27-led-full-hd-r1500-200hz-1ms-hdmi-displayport-freesync-som-integrado-preto-cz270f_1658258836_gg.jpg" alt="Monitor Curvo" />
-          <div class="card-body">
-            <h4>Monitor Curvo 27''</h4>
-            <p>Categoria: Monitor</p>
-            <p class="preco-antigo">R$ 679,00</p>
-            <p class="preco-destaque">R$ 599,99</p>
-            <p class="parcelamento">ou 10x de R$ 59,99</p>
-            <button>Comprar</button>
-          </div>
-        </div>
+<!-- 🎮 CONTROLE REDRAGON USB -->
+<div class="card kabum">
+  <img src="https://cdn.awsli.com.br/800x800/2547/2547358/produto/207712903/controle-redragon-saturn-para-pc-g807_-maqyyz.jpg" alt="Controle Redragon Saturno">
+  <div class="card-body">
+    <h4>Controle Redragon Saturno USB</h4>
+    <p class="preco-antigo">R$ 169,90</p>
+    <p class="preco-destaque">R$ 149,99</p>
+    <p class="parcelamento">ou 10x de R$ 14,99</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card">
-          <a href="/paginas-dos-produtos/páginas/memoriaram.html" class="card-link"></a>
-          <img src="https://images8.kabum.com.br/produtos/fotos/110828/memoria-corsair-vengeance-lpx-32gb-2x16gb-3200mhz-ddr4-c16-black-cmk32gx4m2e3200c16_1590064067_g.jpg" alt="Memória RAM" />
-          <div class="card-body">
-            <h4>Memória RAM 32GB DDR4</h4>
-            <p>Categoria: Memória</p>
-            <p class="preco-antigo">R$ 899,99</p>
-            <p class="preco-destaque">R$ 699,99</p>
-            <p class="parcelamento">ou 10x de R$ 69,99</p>
-            <button>Comprar</button>
-          </div>
-        </div>
+<!-- ⌨️ TECLADO MOTOSPEED 60% -->
+<div class="card kabum">
+  <img src="https://ae01.alicdn.com/kf/H4f1e6644214c4539b5e78aeee6ef8c51u.jpg_640x640q90.jpg" alt="Teclado Motospeed CK62">
+  <div class="card-body">
+    <h4>Teclado Motospeed CK62 RGB</h4>
+    <p class="preco-antigo">R$ 299,90</p>
+    <p class="preco-destaque">R$ 279,00</p>
+    <p class="parcelamento">ou 10x de R$ 27,90</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card sem-fio prime-ninja">
-          <a href="/pages.html" class="card-link"></a>
-          <img src="/pagina inicial/image/kit-gaymer.jpg" alt="Mouse Gamer" />
-          <div class="card-body">
-            <h4>Kit Gamer</h4>
-            <p>Categoria: Kits</p>
-            <p class="preco-antigo">R$ 800</p>
-            <p class="preco-destaque">R$ 699,99</p>
-            <p class="parcelamento">ou 10x de R$ 69,99,</p>
-            <button class="card-button">COMPRAR</button>
-          </div>
-        </div>
+<!-- 🎧 HEADSET REDRAGON ZEUS 2 -->
+<div class="card kabum">
+  <img src="https://images.kabum.com.br/produtos/fotos/227818/headset-gamer-redragon-zeus-chroma-mk-ii-rgb-surround-7-1-usb-drivers-53mm-preto-vermelho-h510-rgb_1631555309_gg.jpg" alt="Headset Redragon Zeus 2">
+  <div class="card-body">
+    <h4>Headset Redragon Zeus 2 7.1</h4>
+    <p class="preco-antigo">R$ 359,99</p>
+    <p class="preco-destaque">R$ 319,99</p>
+    <p class="parcelamento">ou 10x de R$ 31,99</p>
+    <button class="card-button">COMPRAR</button>
+  </div>
+</div>
 
-        <div class="card sem-fio prime-ninja">
-          <a href="/paginas-dos-produtos/páginas/teclado.html" class="card-link"></a>
-          <img src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg" alt="Teclado Gamer" />
-          <div class="card-body">
-            <h4></h4>
-              <p>Categoria: Periféricos</p>
-            <p class="preco-antigo">R$ 1.189,90</p>
-            <p class="preco-destaque">R$ 1.099,90</p>
-            <p class="parcelamento">ou 10x de R$ 109,99</p>
-            <button class="card-button">COMPRAR</button>
-          </div>
-        </div>
+  </div>
+</main>
 
-        <div class="card sem-fio prime-ninja">
-          <a href="/paginas-dos-produtos/páginas/fone.html" class="card-link"></a>
-          <img src="https://images8.kabum.com.br/produtos/fotos/227818/headset-gamer-redragon-zeus-chroma-mk-ii-rgb-surround-7-1-usb-drivers-53mm-preto-vermelho-h510-rgb_1631555309_g.jpg" alt="Mouse Gamer" />
-          <div class="card-body">
-            <h4>Headset Gamer Redragon</h4>
-            <p>Categoria: Periféricos</p>
-            <p class="preco-antigo">R$ 409,99</p>
-            <p class="preco-destaque">R$ 369,99</p>
-            <p class="parcelamento">ou 10x de R$ 36,99</p>
-            <button class="card-button">COMPRAR</button>
-          </div>
-        </div>
-        </div>
-        
+
         <!-- Continue seus outros cards normalmente... -->
       </div>
     </main>
@@ -503,19 +469,19 @@
       link: "/paginas-dos-produtos/páginas/Computador.html"
     },
     {
-      nome: "Mouse Gamer Razer Viper V3",
+      nome: "pc 3green Ryzen 5 5600G",
       link: "/paginas-dos-produtos/páginas/mouse.html"
     },
     {
-      nome: "RTX 5070",
+      nome: "pc completo 5600GT + Kit Gamer",
       link: "/paginas-dos-produtos/páginas/Rtx5070.html"
     },
     {
-      nome: "Monitor Gamer 24'",
+      nome: "PC Skill Aquarium Ryzen 5 + RTX 3050",
       link: "/paginas-dos-produtos/páginas/MonitorGamer24'.html"
     },
     {
-      nome: "Placa Mãe ASUS TUF",
+      nome: "PC Aquarium Ryzen 5 + Vega 7 + SSD 512GB",
       link: "/paginas-dos-produtos/páginas/Placa Mãe ASUS TUF.html"
     },
     {
@@ -529,260 +495,10 @@
     {
       nome: "Memória RAM 32GB DDR4",
       link: "/paginas-dos-produtos/páginas/memoriaram.html"
-    },
-
-    // 🖥️ PCs
-    {
-      nome: "PC Gamer Ryzen 5 4600G",
-      link: "/paginas-dos-produtos/páginas/pc1.html"
-    },
-    {
-      nome: "PC Gamer Intel i5 + Monitor",
-      link: "/paginas-dos-produtos/páginas/pc2.html"
-    },
-    {
-      nome: "PC Gamer i5 + GTX 750 Ti",
-      link: "/paginas-dos-produtos/páginas/pc3.html"
-    },
-    {
-      nome: "PC Gamer i5 + GT 1030 2GB",
-      link: "/paginas-dos-produtos/páginas/pc4.html"
-    },
-    {
-      nome: "PC Gamer Ryzen 7 5700G",
-      link: "/paginas-dos-produtos/páginas/pc5.html"
-    },
-    {
-      nome: "PC Intel Core i7 + GTX 1660",
-      link: "/paginas-dos-produtos/páginas/pc6.html"
-    },
-    {
-      nome: "PC Gamer Ryzen 3 3200G",
-      link: "/paginas-dos-produtos/páginas/pc7.html"
-    },
-    {
-      nome: "PC Intel Core i3 + RX 550",
-      link: "/paginas-dos-produtos/páginas/pc8.html"
-    },
-    {
-      nome: "PC Gamer Completo c/ Monitor 22",
-      link: "/paginas-dos-produtos/páginas/pc9.html"
-    },
-    {
-      nome: "PC Gamer Slim com RGB",
-      link: "/paginas-dos-produtos/páginas/pc10.html"
-    },
-    {
-      nome: "PC AMD Ryzen 5 + RX 6600",
-      link: "/paginas-dos-produtos/páginas/pc11.html"
-    },
-    {
-      nome: "PC Intel Xeon Gamer 32GB + GTX 1050",
-      link: "/paginas-dos-produtos/páginas/pc12.html"
-    },
-
-    // 🧩 Hardware
-    {
-      nome: "Placa de Vídeo RTX 4060 Ti",
-      link: "/paginas-dos-produtos/páginas/hardware1.html"
-    },
-    {
-      nome: "Processador AMD Ryzen 5 5600X",
-      link: "/paginas-dos-produtos/páginas/hardware2.html"
-    },
-    {
-      nome: "Placa-Mãe B550M",
-      link: "/paginas-dos-produtos/páginas/hardware3.html"
-    },
-    {
-      nome: "Fonte 600W 80 Plus Bronze",
-      link: "/paginas-dos-produtos/páginas/hardware4.html"
-    },
-    {
-      nome: "Cooler Master Hyper 212",
-      link: "/paginas-dos-produtos/páginas/hardware5.html"
-    },
-    {
-      nome: "SSD NVMe 1TB",
-      link: "/paginas-dos-produtos/páginas/hardware6.html"
-    },
-    {
-      nome: "Memória RAM Corsair 16GB DDR4",
-      link: "/paginas-dos-produtos/páginas/hardware7.html"
-    },
-    {
-      nome: "Gabinete Gamer RGB Mid Tower",
-      link: "/paginas-dos-produtos/páginas/hardware8.html"
-    },
-    {
-      nome: "Water Cooler 240mm",
-      link: "/paginas-dos-produtos/páginas/hardware9.html"
-    },
-    {
-      nome: "HD 2TB Seagate",
-      link: "/paginas-dos-produtos/páginas/hardware10.html"
-    },
-    {
-      nome: "Adaptador Wi-Fi PCI Express",
-      link: "/paginas-dos-produtos/páginas/hardware11.html"
-    },
-    {
-      nome: "Controladora RGB 5V",
-      link: "/paginas-dos-produtos/páginas/hardware12.html"
-    },
-
-    // 🎧 Periféricos
-    {
-      nome: "Teclado Mecânico RGB Redragon",
-      link: "/paginas-dos-produtos/páginas/periferico1.html"
-    },
-    {
-      nome: "Mouse Gamer Logitech G203",
-      link: "/paginas-dos-produtos/páginas/periferico2.html"
-    },
-    {
-      nome: "Headset Gamer HyperX Cloud Stinger",
-      link: "/paginas-dos-produtos/páginas/periferico3.html"
-    },
-    {
-      nome: "Mousepad Gamer RGB XL",
-      link: "/paginas-dos-produtos/páginas/periferico4.html"
-    },
-    {
-      nome: "Controle Xbox One Wireless",
-      link: "/paginas-dos-produtos/páginas/periferico5.html"
-    },
-    {
-      nome: "Cadeira Gamer Reclinável",
-      link: "/paginas-dos-produtos/páginas/periferico6.html"
-    },
-    {
-      nome: "Webcam Full HD Logitech",
-      link: "/paginas-dos-produtos/páginas/periferico7.html"
-    },
-    {
-      nome: "Microfone Condensador USB",
-      link: "/paginas-dos-produtos/páginas/periferico8.html"
-    },
-    {
-      nome: "Hub USB 4 Portas",
-      link: "/paginas-dos-produtos/páginas/periferico9.html"
-    },
-    {
-      nome: "Carregador Wireless Gamer",
-      link: "/paginas-dos-produtos/páginas/periferico10.html"
-    },
-    {
-      nome: "Teclado + Mouse Sem Fio",
-      link: "/paginas-dos-produtos/páginas/periferico11.html"
-    },
-    {
-      nome: "Base para Notebook com Cooler",
-      link: "/paginas-dos-produtos/páginas/periferico12.html"
-    },
-
-    // 🖥️ Monitores
-    {
-      nome: "Monitor Gamer AOC 24'' 165Hz",
-      link: "/paginas-dos-produtos/páginas/monitor1.html"
-    },
-    {
-      nome: "Monitor LG Ultrawide 29''",
-      link: "/paginas-dos-produtos/páginas/monitor2.html"
-    },
-    {
-      nome: "Monitor Samsung Curvo 27''",
-      link: "/paginas-dos-produtos/páginas/monitor3.html"
-    },
-    {
-      nome: "Monitor 4K LG 27'' HDR",
-      link: "/paginas-dos-produtos/páginas/monitor4.html"
-    },
-    {
-      nome: "Monitor Gamer 144Hz 24'' Full HD",
-      link: "/paginas-dos-produtos/páginas/monitor5.html"
-    },
-    {
-      nome: "Monitor Dell 23.8'' IPS",
-      link: "/paginas-dos-produtos/páginas/monitor6.html"
-    },
-    {
-      nome: "Monitor Philips 21.5'' LED",
-      link: "/paginas-dos-produtos/páginas/monitor7.html"
-    },
-    {
-      nome: "Monitor Acer Nitro 23.8''",
-      link: "/paginas-dos-produtos/páginas/monitor8.html"
-    },
-    {
-      nome: "Monitor ASUS TUF 165Hz",
-      link: "/paginas-dos-produtos/páginas/monitor9.html"
-    },
-    {
-      nome: "Monitor Gamer Curvo 32''",
-      link: "/paginas-dos-produtos/páginas/monitor10.html"
-    },
-    {
-      nome: "Monitor LG 24'' IPS Full HD",
-      link: "/paginas-dos-produtos/páginas/monitor11.html"
-    },
-    {
-      nome: "Monitor Portátil 15.6'' USB-C",
-      link: "/paginas-dos-produtos/páginas/monitor12.html"
-    },
-
-    // 🎒 Acessórios
-    {
-      nome: "Suporte para Fone de Ouvido RGB",
-      link: "/paginas-dos-produtos/páginas/acessorio1.html"
-    },
-    {
-      nome: "Organizador de Cabos Gamer",
-      link: "/paginas-dos-produtos/páginas/acessorio2.html"
-    },
-    {
-      nome: "Limpador de Tela Multifunção",
-      link: "/paginas-dos-produtos/páginas/acessorio3.html"
-    },
-    {
-      nome: "Espelho LED para Stream",
-      link: "/paginas-dos-produtos/páginas/acessorio4.html"
-    },
-    {
-      nome: "Porta Copo Gamer Iluminado",
-      link: "/paginas-dos-produtos/páginas/acessorio5.html"
-    },
-    {
-      nome: "Extensor USB 3.0 com Suporte",
-      link: "/paginas-dos-produtos/páginas/acessorio6.html"
-    },
-    {
-      nome: "Adaptador Bluetooth USB",
-      link: "/paginas-dos-produtos/páginas/acessorio7.html"
-    },
-    {
-      nome: "Filtro de Tela Anti-Reflexo",
-      link: "/paginas-dos-produtos/páginas/acessorio8.html"
-    },
-    {
-      nome: "Cabo DisplayPort 1.4 2m",
-      link: "/paginas-dos-produtos/páginas/acessorio9.html"
-    },
-    {
-      nome: "Suporte Articulado para Monitor",
-      link: "/paginas-dos-produtos/páginas/acessorio10.html"
-    },
-    {
-      nome: "Almofada Ergonômica para Pulso",
-      link: "/paginas-dos-produtos/páginas/acessorio11.html"
-    },
-    {
-      nome: "Etiqueta RGB para Teclado",
-      link: "/paginas-dos-produtos/páginas/acessorio12.html"
     }
+    // Adicione mais produtos conforme necessário
   ];
-</script>
-<script>
+
   function mostrarSugestoes() {
     const input = document.getElementById("search");
     const lista = document.getElementById("sugestoes");
