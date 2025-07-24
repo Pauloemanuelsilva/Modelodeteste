@@ -236,17 +236,6 @@
       if (savedCount > 0) showCartPreview();
     }
   </script>
-
-  <!-- IMPORTANTE: Nos botões dos produtos use o novo formato abaixo: -->
-  <!--
-    <button onclick="addToCart({
-      nome: 'NOME DO PRODUTO',
-      preco: PRECO_EM_NUMERO,
-      imagem: 'URL_DA_IMAGEM',
-      link: '/paginas/detalhe.html'
-    })">COMPRAR</button>
-  -->
-
   </header>
 
   <!-- SLIDER -->
@@ -304,7 +293,12 @@
     <!-- PRODUTOS -->
     <main class="products">
       <h2 class="titulo-produtos">Confira nossos produtos em destaque</h2>
-      <div id="product-grid" class="product-grid">
+      <div id="product-grid" class="product-grid"> 
+        <!-- Os cards de produtos serão inseridos aqui via JavaScript -->
+    <div id="vitrine-produtos" class="grid-produtos">
+      <div class="vitrine-container">
+    <h2 class="vitrine-titulo">🔥 Produtos em Destaque</h2>
+    <div class="vitrine-grid">
 
         <!-- Exemplo de Cards -->
         <div class="card com-fio frete-gratis kabum">
@@ -479,6 +473,9 @@
           </div>
         </div>
         </div>
+      </div>
+      
+      
         
         <!-- Continue seus outros cards normalmente... -->
       </div>
@@ -1091,6 +1088,36 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+
+
+
+<script>
+  function exibirProdutosCadastrados() {
+    const vitrine = document.getElementById('vitrine-produtos');
+    const lista = JSON.parse(localStorage.getItem('produtosUsuario')) || [];
+
+    lista.forEach((produto, index) => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      card.innerHTML = `
+        <a href="#" class="card-link"></a>
+        <img src="${produto.imagem}" alt="${produto.nome}">
+        <div class="card-body">
+          <h4>${produto.nome}</h4>
+          <p>${produto.descricao.length > 80 ? produto.descricao.substring(0, 80) + "..." : produto.descricao}</p>
+          <p>R$ ${produto.preco.toFixed(2)}</p>
+          <button>Ver Mais</button>
+        </div>
+      `;
+
+      vitrine.appendChild(card);
+    });
+  }
+
+  window.onload = exibirProdutosCadastrados;
+</script>
+
 
 </body>
 </html>

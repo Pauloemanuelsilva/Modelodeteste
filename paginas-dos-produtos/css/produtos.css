@@ -1,7 +1,3 @@
-/* ================================ */
-/* EKLIPSE - CSS ORGANIZADO COM AMOR */
-/* ================================ */
-
 /* =============== RESET =============== */
 * {
   box-sizing: border-box;
@@ -405,7 +401,6 @@ body {
 .favoritar-btn:active {
   transform: scale(0.96);
 }
-
 
 
 /* =============== FOOTER =============== */

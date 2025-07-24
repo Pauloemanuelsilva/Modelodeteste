@@ -6,75 +6,6 @@
   <title>Loja Online - EKLIPSE</title>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/pagina inicial/css/style.css" />
-  <style>
-    .cart {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      font-size: 22px;
-      background-color: white;
-      border-radius: 10px;
-      padding: 10px 15px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-      font-weight: bold;
-      color: #ff4e00;
-      z-index: 999;
-      text-decoration: none;
-    }
-
-    #cart-count {
-      margin-left: 5px;
-      background-color: #ff4e00;
-      color: white;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 14px;
-    }
-
-    #popup-cupom {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #fff;
-      color: #333;
-      border: 2px solid #ff4e00;
-      padding: 16px 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      font-family: 'Arial', sans-serif;
-      font-size: 15px;
-      max-width: 300px;
-      z-index: 1000;
-      animation: surgir 0.4s ease;
-    }
-
-    #popup-cupom button {
-      margin-top: 10px;
-      padding: 6px 12px;
-      background-color: #ff4e00;
-      border: none;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    #popup-cupom button:hover {
-      background-color: #e64300;
-    }
-
-    @keyframes surgir {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
 
   <script>
     function showCartPreview() {
@@ -170,7 +101,7 @@
     <button onclick="fecharManual()">Entendi</button>
   </div>
 </div>
-<link rel="stylesheet" href="/pagina inicial/css/style.css">
+
 <script src="/pagina inicial/script/script.js" defer></script>
   <script>
     // Exibir o manual do usuário ao carregar a página
@@ -235,17 +166,6 @@
       if (savedCount > 0) showCartPreview();
     }
   </script>
-
-  <!-- IMPORTANTE: Nos botões dos produtos use o novo formato abaixo: -->
-  <!--
-    <button onclick="addToCart({
-      nome: 'NOME DO PRODUTO',
-      preco: PRECO_EM_NUMERO,
-      imagem: 'URL_DA_IMAGEM',
-      link: '/paginas/detalhe.html'
-    })">COMPRAR</button>
-  -->
-
   </header>
 
   <!-- SLIDER -->
@@ -445,10 +365,8 @@
   </div>
 </div>
 
-
   </div>
 </main>
-
 
         <!-- Continue seus outros cards normalmente... -->
       </div>
@@ -465,44 +383,7 @@
     </p>
   </footer>
 
-
 <script>
-  const produtosEKLIPSE = [
-    {
-      nome: "PC Gamer Neologic Ryzen 5 5600GT",
-      link: "/paginas-dos-produtos/páginas/Computador.html"
-    },
-    {
-      nome: "pc 3green Ryzen 5 5600G",
-      link: "/paginas-dos-produtos/páginas/mouse.html"
-    },
-    {
-      nome: "pc completo 5600GT + Kit Gamer",
-      link: "/paginas-dos-produtos/páginas/Rtx5070.html"
-    },
-    {
-      nome: "PC Skill Aquarium Ryzen 5 + RTX 3050",
-      link: "/paginas-dos-produtos/páginas/MonitorGamer24'.html"
-    },
-    {
-      nome: "PC Aquarium Ryzen 5 + Vega 7 + SSD 512GB",
-      link: "/paginas-dos-produtos/páginas/Placa Mãe ASUS TUF.html"
-    },
-    {
-      nome: "Teclado Gamer Logitech",
-      link: "/paginas-dos-produtos/páginas/teclado.html"
-    },
-    {
-      nome: "Headset Redragon",
-      link: "/paginas-dos-produtos/páginas/fone.html"
-    },
-    {
-      nome: "Memória RAM 32GB DDR4",
-      link: "/paginas-dos-produtos/páginas/memoriaram.html"
-    }
-    // Adicione mais produtos conforme necessário
-  ];
-
   function mostrarSugestoes() {
     const input = document.getElementById("search");
     const lista = document.getElementById("sugestoes");
@@ -595,35 +476,6 @@
   }
 </script>
 
-
-  <!-- SCRIPTS -->
-  <script src="/js/script.js"></script>
-
-
- <style>
-  .cart {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    font-size: 22px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    font-weight: bold;
-    color: #ff4e00;
-    z-index: 999;
-  }
-
-  #cart-count {
-    margin-left: 5px;
-    background-color: #ff4e00;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 14px;
-  }
-</style>
   <script>
   let cartCount = 0;
 
@@ -711,106 +563,6 @@
       document.querySelectorAll('.product-grid .card').forEach(card => card.style.display = 'flex');
     }
   </script>
-
-<!-- POP-UP PROMOCIONAL EKLIPSE -->
-<div id="popupPromo" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="fecharPopup()">&times;</span>
-    <h2>🎁 Oferta Exclusiva!</h2>
-    <p>Ganhe <strong>10% OFF</strong> com o cupom: <code>EKLIPSE10</code></p>
-    <button onclick="fecharPopup()">Quero aproveitar!</button>
-  </div>
-</div>
-
-<style>
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 300px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  position: relative;
-}
-
-.popup .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #ff4e00;
-}
-</style>
-
-<script>
-function abrirPopup() {
-  const jaViu = localStorage.getItem("popupVisto");
-  if (!jaViu) {
-    document.getElementById("popupPromo").style.display = "flex";
-    localStorage.setItem("popupVisto", "true");
-  }
-}
-
-function fecharPopup() {
-  document.getElementById("popupPromo").style.display = "none";
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-  setTimeout(abrirPopup, 3000); // aparece após 3 segundos
-});
-</script>
-
-
-<!-- ... (todo o conteúdo anterior do seu HTML continua igual) ... -->
-
-<!-- 1. POP-UP DE CUPOM/PROMOÇÃO COM COOKIE -->
-<div id="popup-cupom" style="display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:2px solid #ff4e00; padding:15px; border-radius:8px; z-index:1000; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-  <p><strong>🎉 Bem-vindo!</strong> Ganhe <b>10% OFF</b> na sua primeira compra com o cupom <b>EKLIPSE10</b> 🧡</p>
-  <button onclick="document.getElementById('popup-cupom').style.display='none'">Fechar</button>
-</div>
-
-<script>
-// === COOKIES ===
-function setCookie(nome, valor, dias) {
-  const data = new Date();
-  data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
-  const expira = "expires=" + data.toUTCString();
-  document.cookie = nome + "=" + valor + ";" + expira + ";path=/";
-}
-
-function getCookie(nome) {
-  const nomeIgual = nome + "=";
-  const cookies = decodeURIComponent(document.cookie).split(';');
-  for (let c of cookies) {
-    while (c.charAt(0) === ' ') c = c.substring(1);
-    if (c.indexOf(nomeIgual) === 0) return c.substring(nomeIgual.length, c.length);
-  }
-  return "";
-}
-
-// === POP-UP COM CUPOM USANDO COOKIE ===
-window.addEventListener("DOMContentLoaded", function () {
-  if (!getCookie("cupomVisto")) {
-    document.getElementById("popup-cupom").style.display = "block";
-    setCookie("cupomVisto", "true", 7); // só aparece 1x a cada 7 dias
-  }
-});
-</script>
 
 </body>
 </html>

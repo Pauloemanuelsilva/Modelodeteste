@@ -15,3 +15,5 @@ inputFoto.addEventListener('change', e => {
 
 const savedAvatar = localStorage.getItem('perfilAvatar');
 if (savedAvatar) avatar.src = savedAvatar;
+
+

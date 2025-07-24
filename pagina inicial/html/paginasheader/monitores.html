@@ -6,110 +6,6 @@
   <title>Loja Online - EKLIPSE</title>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/pagina inicial/css/style.css" />
-  <style>
-    .cart {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      font-size: 22px;
-      background-color: white;
-      border-radius: 10px;
-      padding: 10px 15px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-      font-weight: bold;
-      color: #ff4e00;
-      z-index: 999;
-      text-decoration: none;
-    }
-
-    #cart-count {
-      margin-left: 5px;
-      background-color: #ff4e00;
-      color: white;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 14px;
-    }
-
-    #popup-cupom {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #fff;
-      color: #333;
-      border: 2px solid #ff4e00;
-      padding: 16px 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      font-family: 'Arial', sans-serif;
-      font-size: 15px;
-      max-width: 300px;
-      z-index: 1000;
-      animation: surgir 0.4s ease;
-    }
-
-    #popup-cupom button {
-      margin-top: 10px;
-      padding: 6px 12px;
-      background-color: #ff4e00;
-      border: none;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    #popup-cupom button:hover {
-      background-color: #e64300;
-    }
-
-    @keyframes surgir {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-
-  <script>
-    function showCartPreview() {
-      const cart = JSON.parse(localStorage.getItem("cartList")) || [];
-      const preview = document.getElementById("cart-preview");
-      const total = document.getElementById("cart-preview-total");
-      preview.innerHTML = "";
-      let totalValor = 0;
-
-      cart.slice(-3).forEach(item => {
-        totalValor += item.preco;
-        const li = document.createElement("li");
-        li.style.marginBottom = "10px";
-        li.innerHTML = `
-          <img src="${item.imagem}" alt="${item.nome}" style="width:40px; vertical-align:middle; margin-right:10px;"> 
-          <a href="${item.link}" style="color:#333; text-decoration:none;">${item.nome}</a>
-        `;
-        preview.appendChild(li);
-      });
-
-      total.textContent = "R$ " + totalValor.toFixed(2).replace('.', ',');
-      document.getElementById("floating-cart").style.display = "block";
-    }
-
-    function atualizarContadorCarrinho() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      const contador = document.getElementById('cart-count');
-      if (contador) {
-        contador.textContent = carrinho.length;
-        contador.style.display = carrinho.length > 0 ? 'inline-block' : 'none';
-      }
-    }
-
-    window.addEventListener('DOMContentLoaded', atualizarContadorCarrinho);
-  </script>
 </head>
 <body>
   <header class="main-header">
@@ -173,18 +69,6 @@
 </div>
 <link rel="stylesheet" href="/pagina inicial/css/style.css">
 <script src="/pagina inicial/script/script.js" defer></script>
-  <script>
-    // Exibir o manual do usuário ao carregar a página
-    window.onload = function() {
-      document.getElementById("manualModal").style.display = "block";
-    };
-
-    // Função para fechar o manual
-    function fecharManual() {
-      document.getElementById("manualModal").style.display = "none";
-    }
-
-  </script>
   <!-- CARRINHO FLUTUANTE (SEPARADO E ADICIONAL) -->
   <div id="floating-cart" style="display:none; position:fixed; top:70px; right:30px; background:white; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.15); padding:10px; border-radius:10px; max-width:300px; z-index:9999;">
     <h4>Resumo do Carrinho</h4>
@@ -192,61 +76,6 @@
     <p><strong>Total:</strong> <span id="cart-preview-total">R$ 0,00</span></p>
     <a href="/paginas/carrinho.html" style="color:#ff4e00; font-weight:bold; text-decoration:none;">Ir para o carrinho</a>
   </div>
-
-  <!-- SCRIPT PARA ADICIONAR PRODUTO -->
-  <script>
-    function addToCart(produto) {
-      let cartList = JSON.parse(localStorage.getItem("cartList")) || [];
-      cartList.push(produto);
-      localStorage.setItem("cartList", JSON.stringify(cartList));
-
-      let cartCount = parseInt(localStorage.getItem("cartCount") || "0");
-      cartCount++;
-      localStorage.setItem("cartCount", cartCount);
-      document.getElementById("cart-count").textContent = cartCount;
-
-      showCartPreview();
-    }
-
-    function showCartPreview() {
-      const cart = JSON.parse(localStorage.getItem("cartList")) || [];
-      const preview = document.getElementById("cart-preview");
-      const total = document.getElementById("cart-preview-total");
-      preview.innerHTML = "";
-      let totalValor = 0;
-
-      cart.slice(-3).forEach(item => {
-        totalValor += item.preco;
-        const li = document.createElement("li");
-        li.style.marginBottom = "10px";
-        li.innerHTML = `
-          <img src="${item.imagem}" alt="${item.nome}" style="width:40px; vertical-align:middle; margin-right:10px;"> 
-          <a href="${item.link}" style="color:#333; text-decoration:none;">${item.nome}</a>
-        `;
-        preview.appendChild(li);
-      });
-
-      total.textContent = "R$ " + totalValor.toFixed(2).replace('.', ',');
-      document.getElementById("floating-cart").style.display = "block";
-    }
-
-    window.onload = function () {
-      const savedCount = parseInt(localStorage.getItem("cartCount")) || 0;
-      document.getElementById("cart-count").textContent = savedCount;
-      if (savedCount > 0) showCartPreview();
-    }
-  </script>
-
-  <!-- IMPORTANTE: Nos botões dos produtos use o novo formato abaixo: -->
-  <!--
-    <button onclick="addToCart({
-      nome: 'NOME DO PRODUTO',
-      preco: PRECO_EM_NUMERO,
-      imagem: 'URL_DA_IMAGEM',
-      link: '/paginas/detalhe.html'
-    })">COMPRAR</button>
-  -->
-
   </header>
 
   <!-- SLIDER -->
@@ -313,7 +142,7 @@
 </div>
 
 <div class="card">
-  <img src="https://images.kabum.com.br/produtos/fotos/126893/monitor-gamer-lg-24-full-hd-144hz-1ms_1642180472_gg.jpg" alt="Monitor LG 24'' 144Hz" />
+  <img src="https://images5.kabum.com.br/produtos/fotos/sync_mirakl/617865/xlarge/Monitor-Gamer-LG-Ultragear-24-LED-180Hz-1ms-HDR10-AMD-Freesync-DisplayPort-HDMI-24gs60f-b_1751986192.jpg" alt="Monitor LG 24'' 144Hz" />
   <div class="card-body">
     <h4>Monitor LG 24" 144Hz 1ms</h4>
     <p class="preco-antigo">R$ 1.299,00</p>
@@ -433,11 +262,8 @@
   </div>
 </div>
 
-
-
   </div>
 </main>
-
 
         <!-- Continue seus outros cards normalmente... -->
       </div>
@@ -454,252 +280,8 @@
     </p>
   </footer>
 
-
-<script>
-  const produtosEKLIPSE = [
-    {
-      nome: "PC Gamer Neologic Ryzen 5 5600GT",
-      link: "/paginas-dos-produtos/páginas/Computador.html"
-    },
-    {
-      nome: "pc 3green Ryzen 5 5600G",
-      link: "/paginas-dos-produtos/páginas/mouse.html"
-    },
-    {
-      nome: "pc completo 5600GT + Kit Gamer",
-      link: "/paginas-dos-produtos/páginas/Rtx5070.html"
-    },
-    {
-      nome: "PC Skill Aquarium Ryzen 5 + RTX 3050",
-      link: "/paginas-dos-produtos/páginas/MonitorGamer24'.html"
-    },
-    {
-      nome: "PC Aquarium Ryzen 5 + Vega 7 + SSD 512GB",
-      link: "/paginas-dos-produtos/páginas/Placa Mãe ASUS TUF.html"
-    },
-    {
-      nome: "Teclado Gamer Logitech",
-      link: "/paginas-dos-produtos/páginas/teclado.html"
-    },
-    {
-      nome: "Headset Redragon",
-      link: "/paginas-dos-produtos/páginas/fone.html"
-    },
-    {
-      nome: "Memória RAM 32GB DDR4",
-      link: "/paginas-dos-produtos/páginas/memoriaram.html"
-    }
-    // Adicione mais produtos conforme necessário
-  ];
-
-  function mostrarSugestoes() {
-    const input = document.getElementById("search");
-    const lista = document.getElementById("sugestoes");
-    const termo = input.value.toLowerCase().trim();
-
-    if (termo.length === 0) {
-      lista.style.display = "none";
-      return;
-    }
-
-    const resultados = produtosEKLIPSE.filter(p =>
-      p.nome.toLowerCase().includes(termo)
-    );
-
-    lista.innerHTML = "";
-
-    if (resultados.length > 0) {
-      resultados.forEach(produto => {
-        const item = document.createElement("li");
-        item.textContent = produto.nome;
-        item.onclick = () => {
-          window.location.href = produto.link;
-        };
-        lista.appendChild(item);
-      });
-      lista.style.display = "block";
-    } else {
-      lista.innerHTML = "<li>Produto não encontrado 😢</li>";
-      lista.style.display = "block";
-    }
-  }
-
-  // Esconde lista ao clicar fora
-  document.addEventListener("click", function (e) {
-    const lista = document.getElementById("sugestoes");
-    if (!e.target.closest(".search-wrapper")) {
-      lista.style.display = "none";
-    }
-  });
-</script>
-
-
-  <script>
-  function updateRange() {
-    const min = document.getElementById("range-min").value;
-    const max = document.getElementById("range-max").value;
-    document.getElementById("output-min").textContent = `R$ ${min}`;
-    document.getElementById("output-max").textContent = `R$ ${max}`;
-    document.getElementById("preco-min").value = min;
-    document.getElementById("preco-max").value = max;
-  }
-
-  function aplicarFiltros() {
-    const filtrosAtivos = Array.from(document.querySelectorAll('.filtro:checked')).map(cb => cb.dataset.filtro);
-    const precoMin = parseFloat(document.getElementById('preco-min').value || 0);
-    const precoMax = parseFloat(document.getElementById('preco-max').value || Infinity);
-
-    document.querySelectorAll('.product-grid .card').forEach(card => {
-      const precoTexto = card.querySelector('.preco-destaque')?.textContent || "0";
-      const precoNumerico = parseFloat(precoTexto.replace(/[^\d,]/g, '').replace(',', '.')) || 0;
-
-      const temFiltroCategoria = filtrosAtivos.length === 0 || filtrosAtivos.every(filtro => card.classList.contains(filtro));
-      const dentroFaixaPreco = precoNumerico >= precoMin && precoNumerico <= precoMax;
-
-      if (temFiltroCategoria && dentroFaixaPreco) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  function resetarFiltros() {
-    document.querySelectorAll('.filtro').forEach(cb => cb.checked = false);
-    document.getElementById("range-min").value = 500;
-    document.getElementById("range-max").value = 6000;
-    document.getElementById("preco-min").value = "";
-    document.getElementById("preco-max").value = "";
-    updateRange();
-
-    document.querySelectorAll('.product-grid .card').forEach(card => {
-      card.style.display = 'flex';
-    });
-  }
-
-
-  // Inicializa os valores do range na tela ao carregar
-  window.onload = () => {
-    updateRange();
-  }
-</script>
-
-
   <!-- SCRIPTS -->
   <script src="/js/script.js"></script>
-
-
- <style>
-  .cart {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    font-size: 22px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    font-weight: bold;
-    color: #ff4e00;
-    z-index: 999;
-  }
-
-  #cart-count {
-    margin-left: 5px;
-    background-color: #ff4e00;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 14px;
-  }
-</style>
-  <script>
-  let cartCount = 0;
-
-  function addToCart() {
-    cartCount++;
-    document.getElementById("cart-count").textContent = cartCount;
-  }
-
-    function updateRange() {
-      const min = document.getElementById("range-min").value;
-      const max = document.getElementById("range-max").value;
-      document.getElementById("output-min").textContent = `R$ ${min}`;
-      document.getElementById("output-max").textContent = `R$ ${max}`;
-      document.getElementById("preco-min").value = min;
-      document.getElementById("preco-max").value = max;
-    }
-
-    function aplicarFiltros() {
-      const filtrosAtivos = Array.from(document.querySelectorAll('.filtro:checked')).map(cb => cb.dataset.filtro);
-      const precoMin = parseFloat(document.getElementById('preco-min').value.replace('R$', '').replace(',', '.')) || 0;
-      const precoMax = parseFloat(document.getElementById('preco-max').value.replace('R$', '').replace(',', '.')) || Infinity;
-
-      document.querySelectorAll('.product-grid .card').forEach(card => {
-        const precoEl = card.querySelector('.preco-destaque');
-        const precoTexto = precoEl ? precoEl.textContent.replace(/[^\d,]/g, '').replace(',', '.') : '0';
-        const preco = parseFloat(precoTexto);
-
-        const temFiltro = filtrosAtivos.length === 0 || filtrosAtivos.every(f => card.classList.contains(f));
-        const dentroDoPreco = preco >= precoMin && preco <= precoMax;
-
-        if (temFiltro && dentroDoPreco) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function resetarFiltros() {
-      document.querySelectorAll('.filtro').forEach(cb => cb.checked = false);
-      document.getElementById("range-min").value = 500;
-      document.getElementById("range-max").value = 6000;
-      updateRange();
-      document.getElementById("preco-min").value = "";
-      document.getElementById("preco-max").value = "";
-      document.querySelectorAll('.product-grid .card').forEach(card => card.style.display = 'flex');
-    }
-
-    function updateRange() {
-      const min = document.getElementById("range-min").value;
-      const max = document.getElementById("range-max").value;
-      document.getElementById("output-min").textContent = `R$ ${min}`;
-      document.getElementById("output-max").textContent = `R$ ${max}`;
-      document.getElementById("preco-min").value = min;
-      document.getElementById("preco-max").value = max;
-    }
-
-    function aplicarFiltros() {
-      const filtrosAtivos = Array.from(document.querySelectorAll('.filtro:checked')).map(cb => cb.dataset.filtro);
-      const precoMin = parseFloat(document.getElementById('preco-min').value) || 0;
-      const precoMax = parseFloat(document.getElementById('preco-max').value) || Infinity;
-
-      document.querySelectorAll('.product-grid .card').forEach(card => {
-        const precoTexto = card.querySelector('.preco-destaque')?.textContent.replace(/[^\d,]/g, '').replace(',', '.');
-        const preco = parseFloat(precoTexto) || 0;
-
-        const temFiltro = filtrosAtivos.every(f => card.classList.contains(f));
-        const dentroDoPreco = preco >= precoMin && preco <= precoMax;
-
-        if (temFiltro && dentroDoPreco) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function resetarFiltros() {
-      document.querySelectorAll('.filtro').forEach(cb => cb.checked = false);
-      document.getElementById("range-min").value = 500;
-      document.getElementById("range-max").value = 6000;
-      updateRange();
-      document.getElementById("preco-min").value = "";
-      document.getElementById("preco-max").value = "";
-      document.querySelectorAll('.product-grid .card').forEach(card => card.style.display = 'flex');
-    }
-  </script>
 
 <!-- POP-UP PROMOCIONAL EKLIPSE -->
 <div id="popupPromo" class="popup">
@@ -711,95 +293,11 @@
   </div>
 </div>
 
-<style>
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 10000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 300px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  position: relative;
-}
-
-.popup .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #ff4e00;
-}
-</style>
-
-<script>
-function abrirPopup() {
-  const jaViu = localStorage.getItem("popupVisto");
-  if (!jaViu) {
-    document.getElementById("popupPromo").style.display = "flex";
-    localStorage.setItem("popupVisto", "true");
-  }
-}
-
-function fecharPopup() {
-  document.getElementById("popupPromo").style.display = "none";
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-  setTimeout(abrirPopup, 3000); // aparece após 3 segundos
-});
-</script>
-
-
-<!-- ... (todo o conteúdo anterior do seu HTML continua igual) ... -->
-
 <!-- 1. POP-UP DE CUPOM/PROMOÇÃO COM COOKIE -->
 <div id="popup-cupom" style="display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:2px solid #ff4e00; padding:15px; border-radius:8px; z-index:1000; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
   <p><strong>🎉 Bem-vindo!</strong> Ganhe <b>10% OFF</b> na sua primeira compra com o cupom <b>EKLIPSE10</b> 🧡</p>
   <button onclick="document.getElementById('popup-cupom').style.display='none'">Fechar</button>
 </div>
-
-<script>
-// === COOKIES ===
-function setCookie(nome, valor, dias) {
-  const data = new Date();
-  data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
-  const expira = "expires=" + data.toUTCString();
-  document.cookie = nome + "=" + valor + ";" + expira + ";path=/";
-}
-
-function getCookie(nome) {
-  const nomeIgual = nome + "=";
-  const cookies = decodeURIComponent(document.cookie).split(';');
-  for (let c of cookies) {
-    while (c.charAt(0) === ' ') c = c.substring(1);
-    if (c.indexOf(nomeIgual) === 0) return c.substring(nomeIgual.length, c.length);
-  }
-  return "";
-}
-
-// === POP-UP COM CUPOM USANDO COOKIE ===
-window.addEventListener("DOMContentLoaded", function () {
-  if (!getCookie("cupomVisto")) {
-    document.getElementById("popup-cupom").style.display = "block";
-    setCookie("cupomVisto", "true", 7); // só aparece 1x a cada 7 dias
-  }
-});
-</script>
 
 </body>
 </html>
