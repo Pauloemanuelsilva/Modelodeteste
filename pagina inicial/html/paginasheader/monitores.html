@@ -50,25 +50,6 @@
     </div>
   </header>
 
-  
-  <!-- Manual do Usuário (Modal) -->
-<div id="manualModal" class="manual-modal">
-  <div class="manual-content">
-    <span class="close-btn" onclick="fecharManual()">&times;</span>
-    <h2>👋 Bem-vindo à EKLIPSE!</h2>
-    <p>Este é o seu guia rápido para aproveitar o melhor do nosso site:</p>
-    <ul>
-      <li><strong>🛒 Adicionar ao Carrinho:</strong> Clique em <em>“Adicionar ao Carrinho”</em> para guardar seus produtos.</li>
-      <li><strong>🔍 Buscar Produtos:</strong> Use a barra de busca no topo para procurar qualquer item.</li>
-      <li><strong>💳 Comprar:</strong> Clique em <em>“Comprar”</em> para iniciar o processo de login e pagamento.</li>
-      <li><strong>📦 Carrinho:</strong> Veja os itens selecionados no ícone do carrinho no topo direito.</li>
-    </ul>
-    <p>Aproveite sua experiência com a EKLIPSE!</p>
-    <button onclick="fecharManual()">Entendi</button>
-  </div>
-</div>
-<link rel="stylesheet" href="/pagina inicial/css/style.css">
-<script src="/pagina inicial/script/script.js" defer></script>
   <!-- CARRINHO FLUTUANTE (SEPARADO E ADICIONAL) -->
   <div id="floating-cart" style="display:none; position:fixed; top:70px; right:30px; background:white; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.15); padding:10px; border-radius:10px; max-width:300px; z-index:9999;">
     <h4>Resumo do Carrinho</h4>
@@ -281,23 +262,7 @@
   </footer>
 
   <!-- SCRIPTS -->
-  <script src="/js/script.js"></script>
-
-<!-- POP-UP PROMOCIONAL EKLIPSE -->
-<div id="popupPromo" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="fecharPopup()">&times;</span>
-    <h2>🎁 Oferta Exclusiva!</h2>
-    <p>Ganhe <strong>10% OFF</strong> com o cupom: <code>EKLIPSE10</code></p>
-    <button onclick="fecharPopup()">Quero aproveitar!</button>
-  </div>
-</div>
-
-<!-- 1. POP-UP DE CUPOM/PROMOÇÃO COM COOKIE -->
-<div id="popup-cupom" style="display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:2px solid #ff4e00; padding:15px; border-radius:8px; z-index:1000; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
-  <p><strong>🎉 Bem-vindo!</strong> Ganhe <b>10% OFF</b> na sua primeira compra com o cupom <b>EKLIPSE10</b> 🧡</p>
-  <button onclick="document.getElementById('popup-cupom').style.display='none'">Fechar</button>
-</div>
+  <script src="/pagina inicial/js/script.js"></script>
 
 </body>
 </html>

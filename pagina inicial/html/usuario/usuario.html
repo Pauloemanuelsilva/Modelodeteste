@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/pagina inicial/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="/pagina inicial/css/usuario.css" />
 </head>
 <body>
@@ -28,14 +27,18 @@
       </label>
       <input type="file" accept="image/*" id="input-foto">
       <div>
-        <h2 id="user-nome">Fulano da Silva</h2>
-        <span class="trocar-foto">Trocar foto</span>
+        <h2 id="user-nome">Paulo o fodao</h2>
+        <span class="trocar-foto"></span>
         <button class="btn-sair" onclick="logout()">Sair da Conta</button>
       </div>
     </div>
 
-   <button onclick="window.location.href='/perfil.html'" class="btn-navegar">
-  <p>Ver Meu Perfil</p>
+   <button onclick="window.location.href='/pagina inicial/html/area de venda/vender.html'" class="btn-navegar">
+  <p>Vender</p>
+</button>
+
+<button onclick="window.location.href='/pagina inicial/html/area de venda/meuproduto.html'" class="btn-navegar">
+  <p>ver produtos</p>
 </button>
 
     <div class="info-group">
@@ -52,8 +55,12 @@
       <div class="cards-container" id="vendas"></div>
     </section>
   </main>
- <a href="/pagina inicial/html/area de venda/vender.html">vende</a>
 
+<footer>
+    <p>&copy; 2025 EKLIPSE - todos os direitos estão reservados</p>
+  </footer>
+
+ 
 <script src="/pagina inicial/js/usuario.js"></script>
 </body>
 </html>

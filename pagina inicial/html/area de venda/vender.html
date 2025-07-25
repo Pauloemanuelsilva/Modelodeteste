@@ -4,112 +4,14 @@
   <meta charset="UTF-8" />
   <title>Vender Produto - EKLIPSE</title>
 
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="/pagina inicial/css/vender.css" />
+
   <!-- Fonte moderna: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Ícones FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #0d0d0d, #1f1f1f);
-      margin: 0;
-      padding: 20px;
-      color: #fff;
-    }
-
-    .form-venda {
-      max-width: 600px;
-      margin: 40px auto;
-      background: #1c1c1c;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(255, 78, 0, 0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .form-venda:hover {
-      transform: scale(1.01);
-    }
-
-    .form-venda h2 {
-      text-align: center;
-      color: #ff4e00;
-      margin-bottom: 25px;
-      font-size: 26px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #ffae5d;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #333;
-      border-radius: 10px;
-      background: #2a2a2a;
-      color: #fff;
-      box-sizing: border-box;
-      transition: border 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: #ff4e00;
-      box-shadow: 0 0 10px #ff4e00;
-      outline: none;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #aaa;
-    }
-
-    #preview-img {
-      display: block;
-      margin: 10px auto;
-      max-width: 100%;
-      max-height: 200px;
-      border: 2px dashed #888;
-      border-radius: 8px;
-      background: #111;
-      object-fit: cover;
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 14px;
-      background: #ff4e00;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .btn-submit:hover {
-      background: #e04000;
-      transform: scale(1.02);
-    }
-
-    .btn-submit i {
-      margin-right: 8px;
-    }
-  </style>
 </head>
 <body>
 
@@ -162,42 +64,11 @@
     <button type="submit" class="btn-submit">
       <i class="fa-solid fa-cloud-upload-alt"></i> Salvar e Publicar Produto
     </button>
+
+    <a href="/pagina inicial/html/usuario/usuario.html" class="btn-voltar">← Voltar para o perfil</a>
+    <a href="/pagina inicial/html/index.html" class="btn-voltar">← Voltar à Página Inicial</a>
   </form>
 
-  <script>
-    function mostrarPreview(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = e => {
-        const img = document.getElementById('preview-img');
-        img.src = e.target.result;
-        img.style.display = 'block';
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function cadastrarProduto(e) {
-      e.preventDefault();
-
-      const fotoData = document.getElementById('preview-img').src;
-      const produto = {
-        imagem: fotoData,
-        nome: document.getElementById('nome').value.trim(),
-        descricao: document.getElementById('descricao').value.trim(),
-        categoria: document.getElementById('categoria').value,
-        preco: parseFloat(document.getElementById('preco').value),
-        estoque: parseInt(document.getElementById('estoque').value),
-        variacoes: document.getElementById('variacoes').value.trim()
-      };
-
-      const lista = JSON.parse(localStorage.getItem('produtosUsuario')) || [];
-      lista.push(produto);
-      localStorage.setItem('produtosUsuario', JSON.stringify(lista));
-
-      alert("🔥 Produto cadastrado com sucesso e publicado na EKLIPSE! ");
-      window.location.href = '/pagina inicial/html/index.html';
-    }
-  </script>
+  <script src="/pagina inicial/js/vender.js"></script>
 </body>
 </html>

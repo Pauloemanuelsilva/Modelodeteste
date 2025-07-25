@@ -81,6 +81,49 @@
     .delete-btn:hover {
       background-color: #cc3a00;
     }
+
+     .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: #ff4e00;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: #e04000;
+      transform: scale(1.02);
+    }
+
+    .btn-submit i {
+      margin-right: 8px;
+    }
+
+    .btn-voltar {
+  display: inline-block;
+  margin: 12px 10px 0 0;
+  padding: 10px 20px;
+  background-color: #f44336; /* vermelhinho estilo "voltar" */
+  color: white;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-voltar:hover {
+  background-color: #d32f2f;
+  transform: scale(1.03);
+}
+
   </style>
 </head>
 <body>
@@ -128,5 +171,9 @@
 
     atualizarLista();
   </script>
+   <a href="/pagina inicial/html/usuario/usuario.html" class="btn-voltar">← Voltar para o perfil</a>
+    <a href="/pagina inicial/html/index.html" class="btn-voltar">← Voltar à Página Inicial</a>
+  </form>
+
 </body>
 </html>

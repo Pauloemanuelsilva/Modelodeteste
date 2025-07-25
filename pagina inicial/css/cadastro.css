@@ -1,0 +1,99 @@
+/* Fonte padrão */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #1f1f2e, #2c2c3f);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container do cadastro */
+.cadastro-container {
+  background-color: #2a2a3d;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.cadastro-container h1 {
+  font-family: 'Bangers', cursive;
+  font-size: 36px;
+  color: #6c63ff;
+  margin-bottom: 30px;
+}
+
+/* Formulário */
+form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ddd;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #3d3d55;
+  color: white;
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+form input:focus {
+  box-shadow: 0 0 0 2px #6c63ff;
+}
+
+/* Botão */
+form button {
+  background-color: #6c63ff;
+  color: white;
+  padding: 14px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+form button:hover {
+  background-color: #4b45d5;
+  transform: scale(1.02);
+}
+
+/* Mensagem */
+.message {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ffa;
+}
+
+/* Link de voltar/login */
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6c63ff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.back-link:hover {
+  color: #a09cff;
+  text-decoration: underline;
+}

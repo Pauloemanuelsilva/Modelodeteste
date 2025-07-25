@@ -6,6 +6,7 @@
   <title>Loja Online - EKLIPSE</title>
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+  
 
   <script>
     function showCartPreview() {
@@ -83,6 +84,37 @@
       </div>
     </div>
   </header>
+</body>
+</html>
+  
+  <!-- Manual do Usuário (Modal) -->
+<div id="manualModal" class="manual-modal">
+  <div class="manual-content">
+    <span class="close-btn" onclick="fecharManual()">&times;</span>
+    <h2>👋 Bem-vindo à EKLIPSE!</h2>
+    <p>Este é o seu guia rápido para aproveitar o melhor do nosso site:</p>
+    <ul>
+      <li><strong>🛒 Adicionar ao Carrinho:</strong> Clique em <em>“Adicionar ao Carrinho”</em> para guardar seus produtos.</li>
+      <li><strong>🔍 Buscar Produtos:</strong> Use a barra de busca no topo para procurar qualquer item.</li>
+      <li><strong>💳 Comprar:</strong> Clique em <em>“Comprar”</em> para iniciar o processo de login e pagamento.</li>
+      <li><strong>📦 Carrinho:</strong> Veja os itens selecionados no ícone do carrinho no topo direito.</li>
+    </ul>
+    <p>Aproveite sua experiência com a EKLIPSE!</p>
+    <button onclick="fecharManual()">Entendi</button>
+  </div>
+</div>
+<link rel="stylesheet" href="/pagina inicial/css/style.css">
+<script src="/pagina inicial/script/script.js" defer></script>
+  <script>
+    // Exibir o manual do usuário ao carregar a página
+    window.onload = function() {
+      document.getElementById("manualModal").style.display = "block";
+    };
+
+    // Função para fechar o manual
+    function fecharManual() {
+      document.getElementById("manualModal").style.display = "none";
+    }
 
   </script>
   <!-- CARRINHO FLUTUANTE (SEPARADO E ADICIONAL) -->
@@ -136,6 +168,7 @@
       if (savedCount > 0) showCartPreview();
     }
   </script>
+
   </header>
 
   <!-- SLIDER -->
@@ -193,7 +226,8 @@
     <!-- PRODUTOS -->
     <main class="products">
       <h2 class="titulo-produtos">Confira nossos produtos em destaque</h2>
-      <div id="product-grid" class="product-grid"> 
+      <div id="product-grid" class="product-grid">
+
         <!-- Exemplo de Cards -->
         <div class="card com-fio frete-gratis kabum">
              <div class="info">
@@ -367,9 +401,6 @@
           </div>
         </div>
         </div>
-      </div>
-      
-      
         
         <!-- Continue seus outros cards normalmente... -->
       </div>
@@ -484,6 +515,30 @@
   <script src="/pagina inicial/js/script.js"></script>
 
 
+ <style>
+  .cart {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 22px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    color: #ff4e00;
+    z-index: 999;
+  }
+
+  #cart-count {
+    margin-left: 5px;
+    background-color: #ff4e00;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+</style>
   <script>
   let cartCount = 0;
 
@@ -572,6 +627,51 @@
     }
   </script>
 
+<!-- POP-UP PROMOCIONAL EKLIPSE -->
+<div id="popupPromo" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="fecharPopup()">&times;</span>
+    <h2>🎁 Oferta Exclusiva!</h2>
+    <p>Ganhe <strong>10% OFF</strong> com o cupom: <code>EKLIPSE10</code></p>
+    <button onclick="fecharPopup()">Quero aproveitar!</button>
+  </div>
+</div>
+
+<style>
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ff4e00;
+}
+</style>
+
 <script>
 function abrirPopup() {
   const jaViu = localStorage.getItem("popupVisto");
@@ -590,6 +690,7 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+
 <!-- 1. POP-UP DE CUPOM/PROMOÇÃO COM COOKIE -->
 <div id="popup-cupom" style="display:none; position:fixed; bottom:20px; right:20px; background:#fff; border:2px solid #ff4e00; padding:15px; border-radius:8px; z-index:1000; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
   <p><strong>🎉 Bem-vindo!</strong> Ganhe <b>10% OFF</b> na sua primeira compra com o cupom <b>EKLIPSE10</b> 🧡</p>
@@ -597,6 +698,24 @@ window.addEventListener('DOMContentLoaded', function () {
 </div>
 
 <script>
+// === COOKIES ===
+function setCookie(nome, valor, dias) {
+  const data = new Date();
+  data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
+  const expira = "expires=" + data.toUTCString();
+  document.cookie = nome + "=" + valor + ";" + expira + ";path=/";
+}
+
+function getCookie(nome) {
+  const nomeIgual = nome + "=";
+  const cookies = decodeURIComponent(document.cookie).split(';');
+  for (let c of cookies) {
+    while (c.charAt(0) === ' ') c = c.substring(1);
+    if (c.indexOf(nomeIgual) === 0) return c.substring(nomeIgual.length, c.length);
+  }
+  return "";
+}
+
 // === POP-UP COM CUPOM USANDO COOKIE ===
 window.addEventListener("DOMContentLoaded", function () {
   if (!getCookie("cupomVisto")) {
@@ -606,32 +725,5 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<script>
-  function exibirProdutosCadastrados() {
-    const vitrine = document.getElementById('vitrine-produtos');
-    const lista = JSON.parse(localStorage.getItem('produtosUsuario')) || [];
-
-    lista.forEach((produto, index) => {
-      const card = document.createElement('div');
-      card.classList.add('card');
-
-      card.innerHTML = `
-        <a href="#" class="card-link"></a>
-        <img src="${produto.imagem}" alt="${produto.nome}">
-        <div class="card-body">
-          <h4>${produto.nome}</h4>
-          <p>${produto.descricao.length > 80 ? produto.descricao.substring(0, 80) + "..." : produto.descricao}</p>
-          <p>R$ ${produto.preco.toFixed(2)}</p>
-          <button>Ver Mais</button>
-        </div>
-      `;
-
-      vitrine.appendChild(card);
-    });
-  }
-  window.onload = exibirProdutosCadastrados;
-</script>
-
-
 </body>
-</html>
+</htm
