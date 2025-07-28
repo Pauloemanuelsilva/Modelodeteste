@@ -1,5 +1,4 @@
-
-     const produtosEKLIPSE = [
+const produtosEKLIPSE = [
     {
       nome: "PC Gamer Neologic Ryzen 5 5600GT",
       link: "/paginas-dos-produtos/páginas/Computador.html"
@@ -284,6 +283,20 @@
     }
   ];
 
+function addToCartAndGo(produto) {
+  // 1) Puxa o carrinho atual ou cria um novo
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  // 2) Adiciona o produto
+  carrinho.push(produto);
+  // 3) Salva de volta
+  localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
+  // 4) Atualiza contador global
+  const total = carrinho.length;
+  localStorage.setItem('cartCount', total);
+  const contadorEl = document.getElementById('cart-count');
+  if (contadorEl) contadorEl.textContent = total;
 
-
+  // 5) Redireciona para o carrinho
+  window.location.href = '/paginas-dos-produtos/carrinho/carrinho.html';
+}

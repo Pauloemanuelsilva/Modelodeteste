@@ -2,190 +2,167 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seu Carrinho - EKLIPSE</title>
+  <link rel="stylesheet" href="/pagina inicial/css/style.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-    }
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; background-color: #111; color: #fff; padding: 20px; }
+    h1 { text-align: center; color: #ff4e00; margin-bottom: 20px; }
 
-    h1 {
-      text-align: center;
-      color: #ff4e00;
-    }
+    /* Ícone do carrinho fixo */
+    .cart-icon { position: fixed; top: 20px; right: 20px; font-size: 32px; color: #ff4e00; cursor: pointer; z-index: 1000; }
+    .cart-count { position: absolute; top: -8px; right: -8px; background: #e74c3c; color: #fff; font-size: 14px; font-weight: bold; padding: 2px 6px; border-radius: 50%; pointer-events: none; }
 
-    .carrinho-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    /* Container principal */
+    .carrinho-container { max-width: 900px; margin: 0 auto; }
 
-    .item {
-      display: flex;
-      align-items: center;
-      background: #222;
-      border: 1px solid #333;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-    }
+    /* Item do carrinho */
+    .item { display: grid; grid-template-columns: 100px 1fr 120px 100px 40px; gap: 15px; align-items: center; background: #222; border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); transition: background 0.3s; }
+    .item:hover { background: #2a2a2a; }
+    .item img { width: 100%; height: 100px; object-fit: contain; border-radius: 8px; }
+    .info h3 { font-size: 1.1rem; margin-bottom: 5px; }
+    .info p { font-size: 0.9rem; color: #ccc; }
 
-    .item img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      margin-right: 20px;
-      border-radius: 5px;
-    }
+    /* Preço e subtotal */
+    .preco, .total-item { font-weight: bold; color: #ff4e00; font-size: 1.05rem; text-align: right; }
 
-    .info {
-      flex: 1;
-    }
+    /* Controles de quantidade */
+    .qty-control { display: flex; align-items: center; }
+    .qty-control button { background: #ff4e00; border: none; color: #111; width: 30px; height: 30px; border-radius: 5px; cursor: pointer; font-size: 1.2rem; margin: 0 5px; transition: transform 0.1s; }
+    .qty-control button:hover { transform: scale(1.1); }
+    .qty-control input { width: 50px; text-align: center; font-size: 1rem; padding: 4px; border: 1px solid #333; border-radius: 4px; background: #1a1a1a; color: #fff; }
 
-    .preco {
-      font-weight: bold;
-      color: #ff4e00;
-      margin-top: 5px;
-    }
+    /* Botões de ação */
+    .remove-btn { background: transparent; border: none; cursor: pointer; font-size: 1.5rem; color: #e74c3c; transition: color 0.2s; }
+    .remove-btn:hover { color: #c0392b; }
+    .clear-btn { background: #e74c3c; border: none; color: #fff; padding: 10px 15px; border-radius: 6px; cursor: pointer; margin-top: 10px; transition: background 0.2s; }
+    .clear-btn:hover { background: #c0392b; }
 
-    .remove-btn {
-      background: red;
-      border: none;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    /* Seção de cupom */
+    .coupon { display: flex; justify-content: flex-end; margin: 20px 0; }
+    .coupon input { width: 200px; padding: 8px; border: 1px solid #333; border-radius: 4px 0 0 4px; background: #1a1a1a; color: #fff; }
+    .coupon button { background: #27ae60; border: none; color: #fff; padding: 8px 12px; border-radius: 0 4px 4px 0; cursor: pointer; transition: background 0.2s; }
+    .coupon button:hover { background: #229954; }
 
-    .total {
-      font-size: 20px;
-      text-align: right;
-      margin-top: 20px;
-      color: #0f0;
-    }
+    /* Total geral */
+    .summary { max-width: 900px; margin: 20px auto; background: #222; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+    .total { font-size: 1.3rem; text-align: right; color: #2ecc71; }
 
-    .voltar {
-      display: block;
-      margin-top: 30px;
-      text-align: center;
-    }
+    /* Link continuar comprando */
+    .voltar { text-align: center; margin-top: 30px; }
+    .voltar a { color: #ff4e00; text-decoration: none; font-size: 1.1rem; }
 
-    .voltar a {
-      color: #ff4e00;
-      text-decoration: none;
-    }
-
-    /* Estilo do ícone do carrinho e contador */
-    .cart-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 28px;
-      color: #ff4e00;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: red;
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-      padding: 2px 6px;
-      border-radius: 50%;
-      pointer-events: none;
-      user-select: none;
+    /* Responsividade */
+    @media (max-width: 600px) {
+      .item { grid-template-columns: 80px 1fr; grid-template-rows: auto auto auto auto auto; grid-template-areas: "img info" "qty qty" "preco total-item" "action action" "remove remove"; }
+      .qty-control { grid-area: qty; margin-top: 10px; }
+      .preco { grid-area: preco; }
+      .total-item { grid-area: total-item; margin-top: 10px; }
+      .clear-btn, .remove-btn { grid-area: action; justify-self: start; margin-top: 10px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Ícone do carrinho fixo no canto -->
   <div class="cart-icon" onclick="window.location.href='/pagina inicial/html/carrinho.html'">
-    🛒
-    <span class="cart-count" id="cart-count">0</span>
+    🛒<span class="cart-count" id="cart-count">0</span>
+  </div>
+  <h1>🛒 Seu Carrinho EKLIPSE</h1>
+
+  <div class="carrinho-container" id="carrinho"></div>
+
+  <div class="coupon">
+    <input type="text" id="coupon-code" placeholder="Código de cupom" />
+    <button onclick="applyCoupon()">Aplicar</button>
   </div>
 
-  <h1>🛒 Seu Carrinho</h1>
-  <div class="carrinho-container" id="carrinho"></div>
-  <div class="total" id="total"></div>
+  <div class="summary">
+    <div class="total" id="total"></div>
+    <button class="clear-btn" onclick="clearCart()">Limpar Carrinho</button>
+  </div>
+
   <div class="voltar"><a href="/pagina inicial/html/index.html">← Continuar comprando</a></div>
 
   <script>
-    function carregarCarrinho() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      const container = document.getElementById('carrinho');
-      const totalElement = document.getElementById('total');
-      container.innerHTML = '';
-      let total = 0;
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let discount = 0;
 
-      if (carrinho.length === 0) {
-        container.innerHTML = '<p>Seu carrinho está vazio.</p>';
-        totalElement.innerHTML = '';
-        atualizarContadorCarrinho();
+    const salvarCarrinho = () => localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    const atualizarContador = () => {
+      const contador = document.getElementById('cart-count');
+      const count = carrinho.reduce((sum, i) => sum + i.quantidade, 0);
+      contador.textContent = count;
+      contador.style.display = count ? 'inline-block' : 'none';
+    };
+
+    const renderizarCarrinho = () => {
+      const container = document.getElementById('carrinho');
+      container.innerHTML = '';
+      if (!carrinho.length) {
+        container.innerHTML = '<p style="text-align:center; padding:20px; color:#999;">Seu carrinho está vazio.</p>';
+        atualizarContador();
+        updateTotal();
         return;
       }
-
-      carrinho.forEach((item, index) => {
-        total += item.preco;
-
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('item');
-
-        itemDiv.innerHTML = `
+      carrinho.forEach((item, idx) => {
+        const itemTotal = (item.preco * item.quantidade).toFixed(2);
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.innerHTML = `
           <img src="${item.imagem}" alt="${item.nome}" />
           <div class="info">
             <h3>${item.nome}</h3>
-            <p class="preco">R$ ${item.preco.toFixed(2)}</p>
+            <p>ID: ${item.id || ''}</p>
+            <p class="preco">R$ ${item.preco.toFixed(2).replace('.', ',')}</p>
           </div>
-          <button class="remove-btn" onclick="removerItem(${index})">Remover</button>
+          <div class="qty-control">
+            <button onclick="alterarQtd(${idx}, -1)">−</button>
+            <input type="number" min="1" value="${item.quantidade}" onchange="setQtd(${idx}, this.value)" />
+            <button onclick="alterarQtd(${idx}, 1)">+</button>
+          </div>
+          <div class="total-item">R$ ${itemTotal.replace('.', ',')}</div>
+          <button class="remove-btn" onclick="removerItem(${idx})">🗑️</button>
         `;
-
-        container.appendChild(itemDiv);
+        container.appendChild(div);
       });
+      atualizarContador();
+      updateTotal();
+      salvarCarrinho();
+    };
 
-      totalElement.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2)}`;
-      atualizarContadorCarrinho();
-    }
+    const alterarQtd = (i, delta) => {
+      carrinho[i].quantidade = Math.max(1, carrinho[i].quantidade + delta);
+      renderizarCarrinho();
+    };
+    const setQtd = (i, val) => {
+      const q = parseInt(val);
+      carrinho[i].quantidade = q > 0 ? q : 1;
+      renderizarCarrinho();
+    };
+    const removerItem = i => { carrinho.splice(i,1); renderizarCarrinho(); };
+    const clearCart = () => { carrinho = []; discount = 0; renderizarCarrinho(); };
 
-    function removerItem(index) {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      carrinho.splice(index, 1);
-      localStorage.setItem('carrinho', JSON.stringify(carrinho));
-      carregarCarrinho();
-    }
-
-    function atualizarContadorCarrinho() {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      const contador = document.getElementById('cart-count');
-      if (contador) {
-        contador.textContent = carrinho.length;
-        // Esconde o contador se estiver vazio
-        contador.style.display = carrinho.length > 0 ? 'inline-block' : 'none';
+    const updateTotal = () => {
+      const totalEl = document.getElementById('total');
+      let total = carrinho.reduce((sum, i) => sum + i.preco * i.quantidade, 0);
+      if (discount) {
+        total = total * (1 - discount);
+        totalEl.innerHTML = `<strong>Total com desconto:</strong> R$ ${total.toFixed(2).replace('.', ',')}`;
+      } else {
+        totalEl.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2).replace('.', ',')}`;
       }
-    }
+    };
 
-    // Função para adicionar produtos ao carrinho (você chama isso na sua página de produtos)
-    function addToCart(produto) {
-      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      carrinho.push(produto);
-      localStorage.setItem('carrinho', JSON.stringify(carrinho));
-      atualizarContadorCarrinho();
-    }
+    const applyCoupon = () => {
+      const code = document.getElementById('coupon-code').value.trim();
+      if (code === 'EKLIPSE10') { discount = 0.1; alert('Cupom aplicado: 10% de desconto!'); }
+      else { discount = 0; alert('Cupom inválido.'); }
+      updateTotal();
+    };
 
-    // Atualiza o contador e carrega o carrinho quando a página carregar
-    window.addEventListener('DOMContentLoaded', () => {
-      carregarCarrinho();
-      atualizarContadorCarrinho();
-    });
+    document.addEventListener('DOMContentLoaded', () => { renderizarCarrinho(); atualizarContador(); });
   </script>
-
 </body>
 </html>

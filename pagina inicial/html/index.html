@@ -53,7 +53,7 @@
 
     <div class="search-wrapper">
       <input type="text" id="search" placeholder="Buscar produtos..." oninput="mostrarSugestoes()" />
-      <button type="button" class="search-btn">🔍</button>
+      <button type="button" class="search-btn"></button>
       <ul id="sugestoes" class="sugestoes-lista"></ul>
     </div>
 
@@ -223,27 +223,44 @@
       </div>
     </aside>
 
-    <!-- PRODUTOS -->
+   <!-- PRODUTOS -->
     <main class="products">
       <h2 class="titulo-produtos">Confira nossos produtos em destaque</h2>
       <div id="product-grid" class="product-grid">
 
         <!-- Exemplo de Cards -->
-        <div class="card com-fio frete-gratis kabum">
-             <div class="info">
-          <a href="/paginas-dos-produtos/páginas/Computador.html" class="card-link"></a>
-          <img src="https://cdn.dooca.store/1841/products/cyberpunk-completo-preto.jpg?v=1734956752" alt="PC Gamer" />
-          <div class="card-body">
-            <h4>PC Gamer</h4>
-            <span class="frete-gratis">Frete grátis</span>
-            <p class="preco-antigo">R$ 2.499,00</p>
-            <p class="preco-destaque">R$ 2.199,00</p>
-            <p class="parcelamento">ou 10x de R$ 219,90</p>
-            <button class="card-button" onclick="addToCart()">COMPRAR</button>
-            
-          </div>
-        </div>
-      </div>
+        <div class="card com-fio frete-gratis kabum monitor-card">
+  <a href="/paginas-dos-produtos/páginas/Computador.html" class="card-link"></a>
+  <img
+    src="https://images9.kabum.com.br/produtos/fotos/sync_mirakl/691709/large/PC-Gamer-Neologic-Ryzen-5-5600GT-16GB-RAM-Radeon-Vega-7-Integrado-SSD-480GB-M-2-500W-3-Fans-RGB-Nli89039_1749842388.jpg"
+    alt="PC Gamer"
+    class="card-image"
+  />
+  <div class="card-body">
+    <h4>PC Gamer Neologic Ryzen 5 5600GT, 16GB RAM</h4>
+    <span class="frete-gratis">Frete grátis</span>
+    <p class="preco-antigo">R$ 2.399,99</p>
+    <p class="preco-destaque">R$ 2.199,00</p>
+    <p class="parcelamento">ou 10x de R$ 219,90</p>
+
+    <!-- Botão “Comprar” que redireciona/prossegue -->
+    <button id="comprarBtn" class="btn-add-cart">
+      <i class="fas fa-shopping-cart"></i> Comprar
+    </button>
+   <button
+  class="btn-add-cart"
+  onclick="addToCartAndGo({
+    nome: 'PC Gamer Neologic Ryzen 5 5600GT, 16GB RAM',
+    preco: 123.45,
+    imagem: 'https://images9.kabum.com.br/produtos/fotos/sync_mirakl/691709/large/PC-Gamer-Neologic-Ryzen-5-5600GT-16GB-RAM-Radeon-Vega-7-Integrado-SSD-480GB-M-2-500W-3-Fans-RGB-Nli89039_1749842388.jpg',
+    link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/Computador.html'
+  })"
+>
+  <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+</button>
+  </div>
+</div>
+
         
    <div class="card sem-fio frete-gratis prime-ninja kabum">
   <a href="/paginas-dos-produtos/páginas/mouse.html" class="card-link"></a>
@@ -260,6 +277,17 @@
       imagem: 'https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg',
       link: '/paginas/mouse.html'
     })">COMPRAR</button>
+     <button
+  class="btn-add-cart"
+  onclick="addToCartAndGo({
+    nome: 'Mouse Gamer Razer Viper V3',
+    preco: 299.99,
+    imagem: 'https://cdn.awsli.com.br/2653/2653291/produto/248955913/mouse-gamer-sem-fio-razer-viper-v3-hyperspeed-preto-rz01-04910100-r3u1-541f9580-0e3hto9mig.jpg',
+    link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/mouse.html'
+  })"
+>
+  <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+</button>
   </div>
 </div>
 
@@ -269,11 +297,22 @@
           <div class="card-body">
             <h4> RTX 5070</h4>
             <p>Categoria: GPU</p>
-           <p class="preco-antigo">R$ 4.600,99</p>
+           <p class="preco-antigo">R$ 4.499,99</p>
             <p class="preco-destaque">R$ 2.499,99</p>
             <p class="parcelamento">ou 10x de R$ 249,99
             </p>
             <button class="card-button" onclick="addToCart({})">COMPRAR</button>
+              <button
+  class="btn-add-cart"
+  onclick="addToCartAndGo({
+    nome: 'Placa de Vídeo Gigabyte RTX 5070 WINDFORCE OC SFF 12G NVIDIA GeForce, 12GB GDDR7, 192bits, DLSS, Ray Tracing - 9VN5070WO-00-G10',
+    preco:  4499.99,
+    imagem: 'https://images4.kabum.com.br/produtos/fotos/714574/placa-de-video-rtx-5070-windforce-oc-sff-12g-gigabyte-nvidia-geforce-12gb-gddr7-192bits-dlss-ray-tracing-9vn5070wo-00-g10_1740569969_g.jpg',
+    link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/Rtx5070.html'
+  })"
+>
+  <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+</button>
 
           </div>
         </div>
@@ -288,6 +327,17 @@
             <p class="preco-destaque">R$ 539,99</p>
             <p class="parcelamento">ou 10x de R$ 53,99</p>
             <button>Comprar</button>
+           <button
+  class="btn-add-cart"
+  onclick="addToCartAndGo({
+    nome: 'Monitor Gamer LG UltraGear 24 FHD, IPS, 180Hz, 1ms GTG, HDR10, DisplayPort e HDMI, AMD FreeSync, NVIDIA G-SYNC, Preto - 24GS60F-B',
+    preco:  899.99,
+    imagem: 'https://images9.kabum.com.br/produtos/fotos/614879/monitor-gamer-lg-ultragear-24-full-hd-ips-180hz-1ms-displayport-e-hdmi-nvidia-g-sync-amd-freesync-hdr10-srgb-99-24gs60f-b_1722881105_g.jpg',
+    link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/Rtx5070.html'
+  })"
+>
+  <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+</button>
           </div>
         </div>
 
@@ -299,12 +349,13 @@
             <p class="preco-antigo">R$ 499,99</p>
             <p class="preco-destaque">R$ 399,99</p>
             <p class="parcelamento">ou 10x de R$ 39,99</p>
-            <button class="card-button" onclick="addToCart({
-  nome: 'NOME DO PRODUTO',
-  preco: VALOR, 
-  imagem: 'URL_DA_IMAGEM',
-  link: '/paginas/detalhe.html'
-})">COMPRAR</button>
+            <button class="card-button" onclick="addToCart({})">COMPRAR</button>
+          <button class="btn-add-cart" onclick="addToCartAndGo({
+         nome: 'Memória RAM 32GB DDR4',
+         preco:  439.99,
+        imagem: 'https://images8.kabum.com.br/produtos/fotos/110828/memoria-corsair-vengeance-lpx-32gb-2x16gb-3200mhz-ddr4-c16-black-cmk32gx4m2e3200c16_1590064067_g.jpg',
+        link: '-http://127.0.0.1:3000/paginas-dos-produtos/páginas/memoriaram.html'})"
+>     <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
 
           </div>
         </div>
@@ -315,10 +366,17 @@
           <div class="card-body">
             <h4>Placa Mãe ASUS TUF</h4>
             <p>Categoria: Placa Mãe</p>
-            <p class="preco-antigo">R$ 699,99</p>
+            <p class="preco-antigo">R$ 629,99</p>
             <p class="preco-destaque">R$ 599,99</p>
             <p class="parcelamento">ou 10x de R$ 59,99</p>
             <button>Comprar</button>
+            <button class="btn-add-cart" onclick="addToCartAndGo({
+           nome: 'Placa Mãe ASUS TUF',
+           preco:   629.99,
+           imagem: 'https://images.kabum.com.br/produtos/fotos/115216/placa-mae-asus-tuf-gaming-b550m-plus-amd-b550-matx-ddr4_1638447286_original.jpg',
+           link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/Placa Mãe ASUS TUF.html'})"
+>         <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+
           </div>
         </div>
 
@@ -330,10 +388,17 @@
           <div class="card-body">
             <h4>NVIDIA RTX 4070 Ti</h4>
             <p>Categoria: GPU</p>
-            <p class="preco-antigo">R$ 5.000,00</p>
+            <p class="preco-antigo">R$ 4.500,00</p>
             <p class="preco-destaque">R$ 4.500,00
             <p class="parcelamento">ou 10x de R$ 450,00</p>
             <button>Comprar</button>
+            <button class="btn-add-cart" onclick="addToCartAndGo({
+           nome: 'NVIDIA RTX 4070 Ti',
+           preco:    4500.00,
+           imagem: 'https://http2.mlstatic.com/D_NQ_NP_756408-MLB85623611938_062025-O-placa-de-video-asus-tuf-gf-rtx4070ti-super16gb-btf-open-box.webp',
+           link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/nvidea.html'})"
+>         <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+
           </div>
         </div>
 
@@ -346,6 +411,13 @@
             <p class="preco-destaque">R$ 599,99</p>
             <p class="parcelamento">ou 10x de R$ 59,99</p>
             <button>Comprar</button>
+            <button class="btn-add-cart" onclick="addToCartAndGo({
+           nome: 'Monitor Curvo 27',
+           preco:    679.00,
+           imagem: 'https://http2.mlstatic.com/D_NQ_NP_756408-MLB85623611938_062025-O-placa-de-video-asus-tuf-gf-rtx4070ti-super16gb-btf-open-box.webp',
+           link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/nvidea.html'})"
+>         <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+
           </div>
         </div>
 
@@ -359,6 +431,13 @@
             <p class="preco-destaque">R$ 699,99</p>
             <p class="parcelamento">ou 10x de R$ 69,99</p>
             <button>Comprar</button>
+            <button class="btn-add-cart" onclick="addToCartAndGo({
+         nome: 'Memória RAM 32GB DDR4',
+         preco:  439.99,
+        imagem: 'https://images8.kabum.com.br/produtos/fotos/110828/memoria-corsair-vengeance-lpx-32gb-2x16gb-3200mhz-ddr4-c16-black-cmk32gx4m2e3200c16_1590064067_g.jpg',
+        link: '-http://127.0.0.1:3000/paginas-dos-produtos/páginas/memoriaram.html'})"
+>     <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+
           </div>
         </div>
 
@@ -372,6 +451,13 @@
             <p class="preco-destaque">R$ 699,99</p>
             <p class="parcelamento">ou 10x de R$ 69,99,</p>
             <button class="card-button">COMPRAR</button>
+            <button class="btn-add-cart" onclick="addToCartAndGo({
+           nome: 'Monitor Curvo 27',
+           preco:    679.00,
+           imagem: 'https://http2.mlstatic.com/D_NQ_NP_756408-MLB85623611938_062025-O-placa-de-video-asus-tuf-gf-rtx4070ti-super16gb-btf-open-box.webp',
+           link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/nvidea.html'})"
+>         <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+
           </div>
         </div>
 
@@ -379,12 +465,19 @@
           <a href="/paginas-dos-produtos/páginas/teclado.html" class="card-link"></a>
           <img src="https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg" alt="Teclado Gamer" />
           <div class="card-body">
-            <h4></h4>
+            <h4>Teclado Gamer Logitech G PRO X TKL RAPID, Switches Magnético-analógicos, Modo Rapid Trigger, Layout US, Preto - 920-013131</h4>
               <p>Categoria: Periféricos</p>
             <p class="preco-antigo">R$ 1.189,90</p>
             <p class="preco-destaque">R$ 1.099,90</p>
             <p class="parcelamento">ou 10x de R$ 109,99</p>
             <button class="card-button">COMPRAR</button>
+            <button class="btn-add-cart" onclick="addToCartAndGo({
+           nome: 'Teclado Gamer Logitech G PRO X TKL RAPID, Switches Magnético-analógicos, Modo Rapid Trigger, Layout US, Preto - 920-013131',
+           preco:   1189.90,
+           imagem: 'https://images2.kabum.com.br/produtos/fotos/703012/teclado-gamer-logitech-g-pro-x-tkl-rapid-switches-magnetico-analogicos-modo-rapid-trigger-layout-us-preto-920-013131_1740581669_g.jpg',
+           link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/teclado.html'})"
+>         <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+
           </div>
         </div>
 
@@ -398,6 +491,14 @@
             <p class="preco-destaque">R$ 369,99</p>
             <p class="parcelamento">ou 10x de R$ 36,99</p>
             <button class="card-button">COMPRAR</button>
+            <button class="btn-add-cart" onclick="addToCartAndGo({
+           nome: 'Headset Gamer Redragon Zeus X, Chroma Mk.II, RGB, Som Surround 7.1, Drivers 53mm, USB, Preto e Vermelho - H510-RGB',
+           preco:  409.99,
+           imagem: 'https://images8.kabum.com.br/produtos/fotos/227818/headset-gamer-redragon-zeus-chroma-mk-ii-rgb-surround-7-1-usb-drivers-53mm-preto-vermelho-h510-rgb_1631555309_g.jpg',
+           link: 'http://127.0.0.1:3000/paginas-dos-produtos/páginas/fone.html'})"
+>         <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+
+            
           </div>
         </div>
         </div>
@@ -406,6 +507,7 @@
       </div>
     </main>
   </div>
+
 
   <!-- FOOTER -->
   <footer>
@@ -416,48 +518,6 @@
       <a href="https://mail.google.com/mail/u/0/#chat/space/AAQAaEK8dtE">Contato</a>
     </p>
   </footer>
-
-<script>
-  function mostrarSugestoes() {
-    const input = document.getElementById("search");
-    const lista = document.getElementById("sugestoes");
-    const termo = input.value.toLowerCase().trim();
-
-    if (termo.length === 0) {
-      lista.style.display = "none";
-      return;
-    }
-
-    const resultados = produtosEKLIPSE.filter(p =>
-      p.nome.toLowerCase().includes(termo)
-    );
-
-    lista.innerHTML = "";
-
-    if (resultados.length > 0) {
-      resultados.forEach(produto => {
-        const item = document.createElement("li");
-        item.textContent = produto.nome;
-        item.onclick = () => {
-          window.location.href = produto.link;
-        };
-        lista.appendChild(item);
-      });
-      lista.style.display = "block";
-    } else {
-      lista.innerHTML = "<li>Produto não encontrado 😢</li>";
-      lista.style.display = "block";
-    }
-  }
-
-  // Esconde lista ao clicar fora
-  document.addEventListener("click", function (e) {
-    const lista = document.getElementById("sugestoes");
-    if (!e.target.closest(".search-wrapper")) {
-      lista.style.display = "none";
-    }
-  });
-</script>
 
 
   <script>
@@ -698,24 +758,6 @@ window.addEventListener('DOMContentLoaded', function () {
 </div>
 
 <script>
-// === COOKIES ===
-function setCookie(nome, valor, dias) {
-  const data = new Date();
-  data.setTime(data.getTime() + (dias * 24 * 60 * 60 * 1000));
-  const expira = "expires=" + data.toUTCString();
-  document.cookie = nome + "=" + valor + ";" + expira + ";path=/";
-}
-
-function getCookie(nome) {
-  const nomeIgual = nome + "=";
-  const cookies = decodeURIComponent(document.cookie).split(';');
-  for (let c of cookies) {
-    while (c.charAt(0) === ' ') c = c.substring(1);
-    if (c.indexOf(nomeIgual) === 0) return c.substring(nomeIgual.length, c.length);
-  }
-  return "";
-}
-
 // === POP-UP COM CUPOM USANDO COOKIE ===
 window.addEventListener("DOMContentLoaded", function () {
   if (!getCookie("cupomVisto")) {
@@ -723,7 +765,27 @@ window.addEventListener("DOMContentLoaded", function () {
     setCookie("cupomVisto", "true", 7); // só aparece 1x a cada 7 dias
   }
 });
+
 </script>
+
+<div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: #fff; padding: 10px; text-align: center; z-index: 9999;">
+  Usamos cookies para melhorar sua experiência. Ao continuar, você aceita nossa <a href="/pagina inicial/html/politica-privacidade.html" style="color: #ff4e00;">Política de Privacidade</a>.
+  <button onclick="aceitarCookies()" style="margin-left: 10px; background: #ff4e00; border: none; padding: 5px 10px; color: #111; border-radius: 4px;">Aceitar</button>
+</div>
+
+<script>
+  function aceitarCookies() {
+    localStorage.setItem('cookiesAceitos', 'sim');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  if (localStorage.getItem('cookiesAceitos') === 'sim') {
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
+
+
+
 
 </body>
 </htm

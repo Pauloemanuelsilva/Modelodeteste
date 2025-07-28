@@ -17,16 +17,16 @@
 
     <input type="text" id="search" placeholder="Buscar produtos..." />
 
-    <nav class="nav-links">
+     <nav class="nav-links">
       <ul>
-        <li><a href="#">Ofertas</a></li>
-        <li><a href="#">PC Gamer</a></li>
-        <li><a href="#">Hardware</a></li>
-        <li><a href="#">Periféricos</a></li>
-        <li><a href="#">Monitores</a></li>
-        <li><a href="#">Acessórios</a></li>
+        <li><a href="/pagina inicial/html/paginasheader/paginapc.html">PC Gamer</a></li>
+        <li><a href="/pagina inicial/html/paginasheader/harware.html">Hardware</a></li>
+        <li><a href="/pagina inicial/html/paginasheader/perifericos.html">Periféricos</a></li>
+        <li><a href="/pagina inicial/html/paginasheader/monitores.html">Monitores</a></li>
+        <li><a href="/pagina inicial/html/paginasheader/acessorios.html">Acessórios</a></li>
       </ul>
     </nav>
+    
     <div class="cart">🛒<span id="cart-count">0</span></div>
   </header>
 </head>
@@ -115,6 +115,93 @@
       </div>
     </section>
   </main>
+
+<!-- Seção de Avaliações com formulário de comentário -->
+<section id="avaliacoes" class="tab-content avaliacoes">
+  <div class="avaliacoes-header">
+    <div class="nota-geral" id="nota-geral">0/5</div>
+    <div class="estrelas-geral" id="estrelas-geral">☆☆☆☆☆ <span id="total-avaliacoes">(0 avaliações)</span></div>
+  </div>
+
+  <div class="cards-avaliacao" id="cards-avaliacao">
+    <!-- Avaliações existentes serão renderizadas aqui -->
+  </div>
+
+  <!-- Formulário de nova avaliação -->
+  <div class="novo-comentario">
+    <h3>Deixe sua avaliação</h3>
+    <form id="form-avaliacao">
+      <input type="text" id="nome-avaliador" placeholder="Seu nome" required />
+      <select id="nota-avaliador" required>
+        <option value="">Nota</option>
+        <option value="5">5 - Excelente</option>
+        <option value="4">4 - Muito Bom</option>
+        <option value="3">3 - Bom</option>
+        <option value="2">2 - Regular</option>
+        <option value="1">1 - Ruim</option>
+      </select>
+      <textarea id="comentario-avaliador" placeholder="Seu comentário" rows="3" required></textarea>
+      <button type="submit" class="btn-comentar">Enviar Avaliação</button>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Carrega avaliações do localStorage ou inicializa
+  let avaliacoes = JSON.parse(localStorage.getItem('avaliacoesProduto')) || [];
+
+  // Renderiza as avaliações e estatísticas
+  function renderAvaliacoes() {
+    const container = document.getElementById('cards-avaliacao');
+    const totalEl = document.getElementById('total-avaliacoes');
+    const notaGeralEl = document.getElementById('nota-geral');
+    const estrelasGeralEl = document.getElementById('estrelas-geral');
+    container.innerHTML = '';
+
+    if (avaliacoes.length === 0) {
+      container.innerHTML = '<p style="text-align:center;color:#888;">Seja o primeiro a avaliar 😢</p>';
+      notaGeralEl.textContent = '0/5';
+      estrelasGeralEl.innerHTML = '☆☆☆☆☆ <span>(0 avaliações)</span>';
+      return;
+    }
+
+    // Estatísticas
+    const somaNotas = avaliacoes.reduce((sum, a) => sum + a.nota, 0);
+    const media = (somaNotas / avaliacoes.length).toFixed(1);
+    notaGeralEl.textContent = `${media}/5`;
+    estrelasGeralEl.innerHTML = '★'.repeat(Math.round(media)) + '☆'.repeat(5 - Math.round(media)) + ` <span>(${avaliacoes.length} avaliações)</span>`;
+
+    // Renderiza cada avaliação
+    avaliacoes.forEach(a => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h4>${a.nome}</h4>
+        <div class="estrelas">${'★'.repeat(a.nota)}${'☆'.repeat(5 - a.nota)}</div>
+        <div class="data">Avaliado em ${new Date(a.data).toLocaleDateString('pt-BR')}</div>
+        <p>${a.comentario}</p>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // Salvar e renderizar nova avaliação
+  document.getElementById('form-avaliacao').addEventListener('submit', e => {
+    e.preventDefault();
+    const nome = document.getElementById('nome-avaliador').value.trim();
+    const nota = parseInt(document.getElementById('nota-avaliador').value, 10);
+    const comentario = document.getElementById('comentario-avaliador').value.trim();
+    const nova = { nome, nota, comentario, data: new Date() };
+    avaliacoes.unshift(nova);
+    localStorage.setItem('avaliacoesProduto', JSON.stringify(avaliacoes));
+    document.getElementById('form-avaliacao').reset();
+    renderAvaliacoes();
+  });
+
+  // Inicializa
+  renderAvaliacoes();
+</script>
+
 
   <style>
   /* Products grid */

@@ -29,5 +29,5 @@
       localStorage.setItem('produtosUsuario', JSON.stringify(lista));
 
       alert("🔥 Produto cadastrado com sucesso e publicado na EKLIPSE! ");
-      window.location.href = '/pagina inicial/html/index.html';
+      window.location.href = 'http://127.0.0.1:5500/pagina%20inicial/html/area%20de%20venda/meuproduto.html';
     }
